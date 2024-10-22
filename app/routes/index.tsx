@@ -1,6 +1,6 @@
 // app/routes/index.tsx
 import * as fs from "fs";
-import { createFileRoute, useRouter } from "@tanstack/react-router";
+import { createFileRoute, Link, useRouter } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/start";
 import { Button } from "~/components/ui/button";
 
@@ -14,10 +14,10 @@ const getCount = createServerFn("GET", () => {
   return readCount();
 });
 
-const updateCount = createServerFn("POST", async (addBy: number) => {
-  const count = await readCount();
-  await fs.promises.writeFile(filePath, `${count + addBy}`);
-});
+// const updateCount = createServerFn("POST", async (addBy: number) => {
+//   const count = await readCount();
+//   await fs.promises.writeFile(filePath, `${count + addBy}`);
+// });
 
 export const Route = createFileRoute("/")({
   component: Home,
@@ -25,20 +25,15 @@ export const Route = createFileRoute("/")({
 });
 
 function Home() {
-  const router = useRouter();
-  const state = Route.useLoaderData();
+  // const router = useRouter();
+  // const state = Route.useLoaderData();
 
   return (
-    <>
-      <Button
-        onClick={() => {
-          updateCount(1).then(() => {
-            router.invalidate();
-          });
-        }}
-      >
-        Add 1 to {state}?
-      </Button>
-    </>
+    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#02496d] to-[#15162c] text-white">
+      <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16">
+        <h1 className="text-6xl">Hi, Adrian</h1>
+        <Button variant="secondary">Click me to do nothing</Button>
+      </div>
+    </main>
   );
 }
