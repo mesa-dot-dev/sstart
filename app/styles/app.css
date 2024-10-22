@@ -1,4 +1,4 @@
-@import '@fontsource-variable/montserrat';
+@import '@fontsource-variable/dm-sans';
 
 @tailwind base;
 @tailwind components;
@@ -77,7 +77,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-montserrat;
+    @apply bg-background text-foreground font-dm-sans;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 }

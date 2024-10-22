@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { Button } from "~/components/ui/button";
 
 export function NotFound() {
   return (
@@ -8,9 +9,9 @@ export function NotFound() {
         <button type="button" onClick={() => window.history.back()}>
           Go back
         </button>
-        {/* <button asChild variant="secondary"> */}
-        <Link to="/">Home</Link>
-        {/* </button> */}
+        <Button asChild variant="secondary">
+          <Link to="/">Home</Link>
+        </Button>
       </p>
     </div>
   );

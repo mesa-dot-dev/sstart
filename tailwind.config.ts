@@ -55,7 +55,7 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        montserrat: ["Montserrat Variable", ...fontFamily.sans],
+        "dm-sans": ["DM Sans Variable", "sans-serif"],
       },
       keyframes: {
         "accordion-down": {
