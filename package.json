@@ -1,0 +1,42 @@
+{
+  "name": "tanstack-start",
+  "version": "0.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "dev": "vinxi dev",
+    "build": "vinxi build",
+    "start": "vinxi start",
+    "lint": "eslint --max-warnings=0"
+  },
+  "packageManager": "pnpm@9.12.0",
+  "dependencies": {
+    "@tanstack/react-router": "^1.75.0",
+    "@tanstack/start": "^1.76.0",
+    "@vitejs/plugin-react": "^4.3.3",
+    "class-variance-authority": "^0.7.0",
+    "lucide-react": "^0.453.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwind-merge": "^2.5.4",
+    "tailwindcss-animate": "^1.0.7",
+    "vinxi": "^0.4.3"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.13.0",
+    "@tanstack/eslint-plugin-router": "^1.74.5",
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.1",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^9.13.0",
+    "eslint-plugin-only-warn": "^1.1.0",
+    "eslint-plugin-react": "^7.37.1",
+    "globals": "^15.11.0",
+    "postcss": "^8.4.47",
+    "prettier-plugin-tailwindcss": "^0.6.8",
+    "tailwindcss": "^3.4.14",
+    "typescript": "^5.6.3",
+    "typescript-eslint": "^8.11.0",
+    "vite-tsconfig-paths": "^5.0.1"
+  }
+}
