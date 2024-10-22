@@ -8,7 +8,6 @@ export default [
   { files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"] },
   {
     languageOptions: {
-      ...pluginReact.configs.flat.recommended.languageOptions,
       globals: { ...globals.browser, ...globals.node, React: true, JSX: true },
     },
   },

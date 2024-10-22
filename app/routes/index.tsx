@@ -2,6 +2,7 @@
 import * as fs from "fs";
 import { createFileRoute, useRouter } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/start";
+import { Button } from "~/components/ui/button";
 
 const filePath = "count.txt";
 
@@ -29,8 +30,7 @@ function Home() {
 
   return (
     <>
-      <button
-        className="bg-red-600"
+      <Button
         onClick={() => {
           updateCount(1).then(() => {
             router.invalidate();
@@ -38,7 +38,7 @@ function Home() {
         }}
       >
         Add 1 to {state}?
-      </button>
+      </Button>
     </>
   );
 }
