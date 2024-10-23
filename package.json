@@ -5,13 +5,16 @@
   "type": "module",
   "scripts": {
     "build": "vinxi build",
-    "sst": "sst dev",
-    "dev": "vinxi dev",
+    "dev": "sst dev",
+    "dev:app": "vinxi dev",
     "lint": "eslint --max-warnings=0",
     "sso": "aws sso login --profile taylor-dev",
     "start": "vinxi start"
   },
   "packageManager": "pnpm@9.12.0",
+  "engines": {
+    "node": "22"
+  },
   "dependencies": {
     "@fontsource-variable/dm-sans": "^5.1.0",
     "@radix-ui/react-avatar": "^1.1.1",

@@ -15,7 +15,9 @@
     "pnpm-lock.yaml": true,
     "postcss.config.js": true,
     ".prettierrc": true,
-    "**/.sst": true
+    "**/.sst": true,
+    "**/.output": true,
+    ".nvmrc": true
   },
 
   "typescript.tsdk": "./node_modules/typescript/lib",

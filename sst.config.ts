@@ -14,6 +14,6 @@ export default $config({
     };
   },
   async run() {
-    new sst.aws.TanstackStart("TTS-Web-App");
+    new sst.aws.TanstackStart("TTS-Web-App", { dev: { command: "pnpm run dev:app" } });
   },
 });
