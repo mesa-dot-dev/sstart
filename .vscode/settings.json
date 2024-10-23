@@ -14,7 +14,8 @@
     "**/node_modules": true,
     "pnpm-lock.yaml": true,
     "postcss.config.js": true,
-    ".prettierrc": true
+    ".prettierrc": true,
+    "**/.sst": true
   },
 
   "typescript.tsdk": "./node_modules/typescript/lib",
@@ -28,6 +29,5 @@
   "tailwindCSS.experimental.classRegex": [
     ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
     ["cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
-  ],
-  "exportall.config.folderListener": ["/app/components"]
+  ]
 }

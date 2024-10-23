@@ -4,10 +4,12 @@
   "description": "",
   "type": "module",
   "scripts": {
-    "dev": "vinxi dev",
     "build": "vinxi build",
-    "start": "vinxi start",
-    "lint": "eslint --max-warnings=0"
+    "sst": "sst dev",
+    "dev": "vinxi dev",
+    "lint": "eslint --max-warnings=0",
+    "sso": "aws sso login --profile taylor-dev",
+    "start": "vinxi start"
   },
   "packageManager": "pnpm@9.12.0",
   "dependencies": {
@@ -19,14 +21,15 @@
     "@radix-ui/react-separator": "^1.1.0",
     "@radix-ui/react-slot": "^1.1.0",
     "@radix-ui/react-tooltip": "^1.1.3",
-    "@tanstack/react-router": "^1.75.0",
-    "@tanstack/start": "^1.76.0",
+    "@tanstack/react-router": "^1.76.1",
+    "@tanstack/start": "^1.76.1",
     "@vitejs/plugin-react": "^4.3.3",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "lucide-react": "^0.453.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "sst": "3.2.48",
     "tailwind-merge": "^2.5.4",
     "tailwindcss-animate": "^1.0.7",
     "vinxi": "^0.4.3"
@@ -34,12 +37,12 @@
   "devDependencies": {
     "@eslint/js": "^9.13.0",
     "@tanstack/eslint-plugin-router": "^1.74.5",
-    "@types/react": "^18.3.11",
+    "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "autoprefixer": "^10.4.20",
     "eslint": "^9.13.0",
     "eslint-plugin-only-warn": "^1.1.0",
-    "eslint-plugin-react": "^7.37.1",
+    "eslint-plugin-react": "^7.37.2",
     "globals": "^15.11.0",
     "postcss": "^8.4.47",
     "prettier-plugin-tailwindcss": "^0.6.8",
@@ -47,5 +50,8 @@
     "typescript": "^5.6.3",
     "typescript-eslint": "^8.11.0",
     "vite-tsconfig-paths": "^5.0.1"
+  },
+  "overrides": {
+    "nitropack": "npm:nitropack-nightly@latest"
   }
 }
