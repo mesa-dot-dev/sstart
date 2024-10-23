@@ -13,3 +13,4 @@ yarn.lock
 /server/build
 /public/build
 .vinxi
+.vercel
