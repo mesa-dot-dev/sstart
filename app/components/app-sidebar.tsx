@@ -56,9 +56,9 @@ import {
 } from "~/components/ui/sidebar";
 const data = {
   user: {
-    name: "shadcn",
-    email: "m@example.com",
-    avatar: "/avatars/shadcn.jpg",
+    name: "adrian lujo",
+    email: "adrian@lujo.com",
+    avatar: "/avatars/adrian.jpg",
   },
   navMain: [
     {
@@ -187,11 +187,11 @@ export function AppSidebar({ children }: PropsWithChildren) {
             <SidebarMenuItem>
               <SidebarMenuButton size="lg" asChild>
                 <a href="#">
-                  <div className="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
+                  <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
                     <Command className="size-4" />
                   </div>
                   <div className="grid flex-1 text-left text-sm leading-tight">
-                    <span className="truncate font-semibold">Acme Inc</span>
+                    <span className="truncate font-semibold">Adrian Inc</span>
                     <span className="truncate text-xs">Enterprise</span>
                   </div>
                 </a>
