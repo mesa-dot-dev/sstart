@@ -43,6 +43,4 @@ jobs:
         run: pnpm install
 
       - name: Deploy app
-        env:
-          AWS_PROFILE: default
-        run: npx sst deploy --stage production
+        run: AWS_PROFILE=default npx sst deploy --stage production
