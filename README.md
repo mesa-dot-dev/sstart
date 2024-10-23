@@ -3,6 +3,7 @@
 - ✅ Tailwind
 - ✅ Shadcn UI
 - ✅ Some form of basic UI
-- SST
+- ✅ SST
+- GitHub Actions
 - Drizzle
 - BetterAuth
