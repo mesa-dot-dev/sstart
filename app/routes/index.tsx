@@ -32,7 +32,9 @@ function Home() {
     <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#02496d] to-[#15162c] text-white">
       <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16">
         <h1 className="text-6xl">Hi, Adrian</h1>
-        <Button variant="secondary">Click me to do nothing</Button>
+        <Button asChild variant="secondary">
+          <Link to="/dashboard">Go to dashboard</Link>
+        </Button>
       </div>
     </main>
   );
