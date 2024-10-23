@@ -16,17 +16,21 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    steps:
+    steps:          
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v2
-        with:
-          aws-region: us-east-1
-          aws-access-key-id: ${{ secrets.AWS_PRODUCTION_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_PRODUCTION_SECRET_ACCESS_KEY }}
-          aws-session-token: ${{ secrets.AWS_PRODUCTION_SESSION_TOKEN }}
+      - name: Set up AWS credentials file
+        run: |
+          mkdir -p ~/.aws
+          cat > ~/.aws/credentials << EOF
+          [default]
+
+          [taylor-production]
+          aws_access_key_id = ${{ secrets.AWS_PRODUCTION_ACCESS_KEY_ID }}
+          aws_secret_access_key = ${{ secrets.AWS_PRODUCTION_SECRET_ACCESS_KEY }}
+          EOF
+          chmod 600 ~/.aws/credentials
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
@@ -42,17 +46,6 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Set up AWS credentials file
-        run: |
-          mkdir -p ~/.aws
-          cat > ~/.aws/credentials << EOF
-          [default]
-
-          [taylor-production]
-          aws_access_key_id = ${{ secrets.AWS_PRODUCTION_ACCESS_KEY_ID }}
-          aws_secret_access_key = ${{ secrets.AWS_PRODUCTION_SECRET_ACCESS_KEY }}
-          EOF
-          chmod 600 ~/.aws/credentials
 
       - name: Deploy app
         run: npx sst deploy --stage production --print-logs
