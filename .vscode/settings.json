@@ -1,6 +1,21 @@
 {
   // hide misc files that we most likely don't need to see
-  "files.exclude": {},
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/.vinxi": true,
+    "**/.vercel": true,
+    "**/out": true,
+    "**/build": true,
+    "**/node_modules": true,
+    "pnpm-lock.yaml": true,
+    "postcss.config.js": true,
+    ".prettierrc": true
+  },
 
   "typescript.tsdk": "./node_modules/typescript/lib",
 

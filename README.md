@@ -2,7 +2,7 @@
 - ✅ Tanstack Start
 - ✅ Tailwind
 - ✅ Shadcn UI
-- Some form of basic UI
+- ✅ Some form of basic UI
 - SST
 - Drizzle
 - BetterAuth
