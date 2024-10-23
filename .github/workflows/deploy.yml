@@ -42,5 +42,17 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Set up AWS credentials file
+        run: |
+          mkdir -p ~/.aws
+          cat > ~/.aws/credentials << EOF
+          [default]
+
+          [taylor-production]
+          aws_access_key_id = ${{ secrets.AWS_PRODUCTION_ACCESS_KEY_ID }}
+          aws_secret_access_key = ${{ secrets.AWS_PRODUCTION_SECRET_ACCESS_KEY }}
+          EOF
+          chmod 600 ~/.aws/credentials
+
       - name: Deploy app
-        run: AWS_PROFILE=default npx sst deploy --stage production
+        run: npx sst deploy --stage production
