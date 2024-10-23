@@ -20,6 +20,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v2 
+        with:
+          role-to-assume: arn:aws:iam::864522716587:role/SST-GitHub-Actions
+          aws-region: us-east-1
+
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
