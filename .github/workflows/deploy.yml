@@ -47,6 +47,5 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-
       - name: Deploy app
         run: npx sst deploy --stage production --print-logs
