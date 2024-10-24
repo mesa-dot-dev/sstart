@@ -18,84 +18,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          run_install: false
-
-      - name: Install Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version-file: ".nvmrc"
-          cache: "pnpm"
-
-      - name: Install dependencies
-        run: pnpm install
-
-  lint: 
-    runs-on: ubuntu-latest
-    concurrency:
-      group: PR-Checks-lint-${{ github.event.pull_request.number || github.ref }}
-      cancel-in-progress: true
-    needs: install
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          run_install: false
-
-      - name: Install Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version-file: ".nvmrc"
-          cache: "pnpm"
-
-      - name: Install dependencies
-        run: pnpm install
-
-      - name: Run lint
-        run: pnpm lint
-
-  build: 
-    runs-on: ubuntu-latest
-    concurrency:
-      group: PR-Checks--build-${{ github.event.pull_request.number || github.ref }}
-      cancel-in-progress: true
-    needs: install
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          run_install: false
-
-      - name: Install Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version-file: ".nvmrc"
-          cache: "pnpm"
-
-      - name: Install dependencies
-        run: pnpm install
-
-      - name: Run lint
-        run: pnpm build
-
-  deploy: 
-    runs-on: ubuntu-latest
-    concurrency:
-      group: PR-Stage-Deploy-${{ github.event.pull_request.number || github.ref }}
-      cancel-in-progress: false
-    needs: build
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -117,8 +39,92 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Deploy PR Stage
-        run: pnpm sst deploy --stage pr-${{ github.event.pull_request.number }}
+  # lint: 
+  #   runs-on: ubuntu-latest
+  #   concurrency:
+  #     group: PR-Checks-lint-${{ github.event.pull_request.number || github.ref }}
+  #     cancel-in-progress: true
+  #   needs: install
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v4
+      
+  #     - name: Install pnpm
+  #       uses: pnpm/action-setup@v4
+  #       with:
+  #         run_install: false
+
+  #     - name: Install Node.js
+  #       uses: actions/setup-node@v4
+  #       with:
+  #         node-version-file: ".nvmrc"
+  #         cache: "pnpm"
+
+  #     - name: Install dependencies
+  #       run: pnpm install
+
+  #     - name: Run lint
+  #       run: pnpm lint
+
+  # build: 
+  #   runs-on: ubuntu-latest
+  #   concurrency:
+  #     group: PR-Checks--build-${{ github.event.pull_request.number || github.ref }}
+  #     cancel-in-progress: true
+  #   needs: install
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v4
+      
+  #     - name: Install pnpm
+  #       uses: pnpm/action-setup@v4
+  #       with:
+  #         run_install: false
+
+  #     - name: Install Node.js
+  #       uses: actions/setup-node@v4
+  #       with:
+  #         node-version-file: ".nvmrc"
+  #         cache: "pnpm"
+
+  #     - name: Install dependencies
+  #       run: pnpm install
+
+  #     - name: Run lint
+  #       run: pnpm build
+
+  # deploy: 
+  #   runs-on: ubuntu-latest
+  #   concurrency:
+  #     group: PR-Stage-Deploy-${{ github.event.pull_request.number || github.ref }}
+  #     cancel-in-progress: false
+  #   needs: build
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v4
+
+  #     - name: Configure AWS Credentials
+  #       uses: aws-actions/configure-aws-credentials@v4
+  #       with:
+  #         role-to-assume: arn:aws:iam::340752840587:role/GitHub
+  #         aws-region: us-east-1
+      
+  #     - name: Install pnpm
+  #       uses: pnpm/action-setup@v4
+  #       with:
+  #         run_install: false
+
+  #     - name: Install Node.js
+  #       uses: actions/setup-node@v4
+  #       with:
+  #         node-version-file: ".nvmrc"
+  #         cache: "pnpm"
+
+  #     - name: Install dependencies
+  #       run: pnpm install
+
+  #     - name: Deploy PR Stage
+  #       run: pnpm sst deploy --stage pr-${{ github.event.pull_request.number }}
 
         
     
