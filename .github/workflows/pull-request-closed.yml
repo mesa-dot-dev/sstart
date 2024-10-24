@@ -9,6 +9,10 @@ concurrency:
   group: "pr-closed"
   cancel-in-progress: false
 
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
   remove-pr-stage:
     runs-on: ubuntu-latest
@@ -17,7 +21,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v2 
+        uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: arn:aws:iam::340752840587:role/GitHub
           aws-region: us-east-1

@@ -5,11 +5,15 @@ on:
     branches: ["main"]
     types: [opened, synchronize]
 
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
   install:
     runs-on: ubuntu-latest
     concurrency:
-      group: PR-Checks-${{ github.event.pull_request.number || github.ref }}
+      group: PR-Checks-install-${{ github.event.pull_request.number || github.ref }}
       cancel-in-progress: true
     steps:
       - name: Checkout
@@ -32,7 +36,7 @@ jobs:
   lint: 
     runs-on: ubuntu-latest
     concurrency:
-      group: PR-Checks-${{ github.event.pull_request.number || github.ref }}
+      group: PR-Checks-lint-${{ github.event.pull_request.number || github.ref }}
       cancel-in-progress: true
     needs: install
     steps:
@@ -59,7 +63,7 @@ jobs:
   build: 
     runs-on: ubuntu-latest
     concurrency:
-      group: PR-Checks-${{ github.event.pull_request.number || github.ref }}
+      group: PR-Checks--build-${{ github.event.pull_request.number || github.ref }}
       cancel-in-progress: true
     needs: install
     steps:
@@ -88,13 +92,13 @@ jobs:
     concurrency:
       group: PR-Stage-Deploy-${{ github.event.pull_request.number || github.ref }}
       cancel-in-progress: false
-    needs: install
+    needs: build
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
       - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v2 
+        uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: arn:aws:iam::340752840587:role/GitHub
           aws-region: us-east-1
