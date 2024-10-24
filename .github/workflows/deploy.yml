@@ -23,7 +23,7 @@ jobs:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v2 
         with:
-          role-to-assume: arn:aws:iam::864522716587:role/GitHub
+          role-to-assume: arn:aws:iam::593793063333:role/GitHub
           aws-region: us-east-1
 
       - name: Install pnpm

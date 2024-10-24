@@ -18,6 +18,6 @@ export default $config({
     };
   },
   async run() {
-    new sst.aws.TanstackStart("TTS-Web-App", { dev: { command: "pnpm run dev:app" } });
+    new sst.aws.TanstackStart("TSS-Web-App", { dev: { command: "pnpm run dev:app" } });
   },
 });

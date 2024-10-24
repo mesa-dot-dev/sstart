@@ -6,7 +6,7 @@ import "sst"
 export {}
 declare module "sst" {
   export interface Resource {
-    "TTS-Web-App": {
+    "TSS-Web-App": {
       "type": "sst.aws.TanstackStart"
       "url": string
     }

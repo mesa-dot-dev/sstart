@@ -4,11 +4,11 @@
   "description": "",
   "type": "module",
   "scripts": {
+    "auth": "aws sso login --profile dev",
     "build": "vinxi build",
-    "dev": "sst dev",
     "dev:app": "vinxi dev",
+    "dev": "sst dev",
     "lint": "eslint --max-warnings=0",
-    "sso": "aws sso login --profile dev",
     "sst": "sst",
     "start": "vinxi start"
   },
