@@ -8,7 +8,11 @@ export default $config({
       home: "aws",
       providers: {
         aws: {
-          profile: input?.stage === "production" ? "taylor-production" : "taylor-dev",
+          profile: process.env.GITHUB_ACTIONS
+            ? undefined
+            : input?.stage === "production"
+              ? "production"
+              : "dev",
         },
       },
     };

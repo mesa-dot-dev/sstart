@@ -8,7 +8,8 @@
     "dev": "sst dev",
     "dev:app": "vinxi dev",
     "lint": "eslint --max-warnings=0",
-    "sso": "aws sso login --profile taylor-dev",
+    "sso": "aws sso login --profile dev",
+    "sst": "sst",
     "start": "vinxi start"
   },
   "packageManager": "pnpm@9.12.0",

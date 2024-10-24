@@ -20,18 +20,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up AWS credentials file
-        run: |
-          mkdir -p ~/.aws
-          cat > ~/.aws/credentials << EOF
-          [default]
-
-          [taylor-production]
-          aws_access_key_id = ${{ secrets.AWS_PRODUCTION_ACCESS_KEY_ID }}
-          aws_secret_access_key = ${{ secrets.AWS_PRODUCTION_SECRET_ACCESS_KEY }}
-          aws_session_token = ${{ secrets.AWS_PRODUCTION_SESSION_TOKEN }}
-          EOF
-          chmod 600 ~/.aws/credentials
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v2 
+        with:
+          role-to-assume: arn:aws:iam::864522716587:role/GitHub
+          aws-region: us-east-1
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
@@ -48,4 +41,4 @@ jobs:
         run: pnpm install
 
       - name: Deploy app
-        run: npx sst deploy --stage production --print-logs
+        run: pnpm sst deploy --stage production
