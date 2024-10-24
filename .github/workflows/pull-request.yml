@@ -88,7 +88,7 @@ jobs:
     concurrency:
       group: PR-Stage-Deploy-${{ github.event.pull_request.number || github.ref }}
       cancel-in-progress: false
-    needs: install
+    needs: build
     steps:
       - name: Checkout
         uses: actions/checkout@v4
