@@ -9,7 +9,7 @@ jobs:
   install:
     runs-on: ubuntu-latest
     concurrency:
-      group: PR-Checks-${{ github.event.pull_request.number || github.ref }}
+      group: PR-Checks-install-${{ github.event.pull_request.number || github.ref }}
       cancel-in-progress: true
     steps:
       - name: Checkout
@@ -32,7 +32,7 @@ jobs:
   lint: 
     runs-on: ubuntu-latest
     concurrency:
-      group: PR-Checks-${{ github.event.pull_request.number || github.ref }}
+      group: PR-Checks-lint-${{ github.event.pull_request.number || github.ref }}
       cancel-in-progress: true
     needs: install
     steps:
@@ -59,7 +59,7 @@ jobs:
   build: 
     runs-on: ubuntu-latest
     concurrency:
-      group: PR-Checks-${{ github.event.pull_request.number || github.ref }}
+      group: PR-Checks--build-${{ github.event.pull_request.number || github.ref }}
       cancel-in-progress: true
     needs: install
     steps:
