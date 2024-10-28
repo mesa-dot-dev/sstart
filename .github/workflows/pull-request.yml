@@ -147,9 +147,7 @@ jobs:
               issue_number: prNumber,
             });
 
-            console.log(comments);
-
-            const existingComment = comments.find(comment => comment.body.startsWith("WebApp URL:"));
+            const existingComment = comments.find(comment => comment.user.login ==='github-actions[bot]' && comment.body.startsWith("WebApp URL:"));
 
             if (existingComment) {
               // Update the existing comment
