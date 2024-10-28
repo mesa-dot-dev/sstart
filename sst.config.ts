@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/triple-slash-reference */
 /// <reference path="./.sst/platform/config.d.ts" />
 export default $config({
+  console: {},
   app(input) {
     return {
       name: "tss",
@@ -18,6 +19,8 @@ export default $config({
     };
   },
   async run() {
-    new sst.aws.TanstackStart("TSS-Web-App", { dev: { command: "pnpm run dev:app" } });
+    const webApp = new sst.aws.TanstackStart("TSS-Web-App", { dev: { command: "pnpm run dev:app" } });
+
+    return { web: webApp.nodes.cdn };
   },
 });
