@@ -122,11 +122,11 @@ jobs:
 
       - name: Read webApp from output.json
         run: |
-          if [ -f ".sst/output.json" ]; then
-            webApp=$(jq -r '.webApp' .sst/output.json)
+          if [ -f ".sst/outputs.json" ]; then
+            webApp=$(jq -r '.webApp' .sst/outputs.json)
             echo "webApp=$webApp" >> $GITHUB_ENV
           else
-            echo "sst output file not found. Exiting."
+            echo "sst outputs file not found. Exiting."
             exit 1
           fi
 
