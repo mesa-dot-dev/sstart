@@ -4,6 +4,6 @@
 - ✅ Shadcn UI
 - ✅ Some form of basic UI
 - ✅ SST
-- GitHub Actions
+- ✅ GitHub Actions
 - Drizzle
 - BetterAuth
