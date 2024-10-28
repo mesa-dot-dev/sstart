@@ -139,7 +139,7 @@ jobs:
           script: |
             const webApp = process.env.webApp;
             const prNumber = context.issue.number;
-            const commentBody = `WebApp URL: \`${webApp}\``;
+            const commentBody = `WebApp URL: ${webApp}`;
 
             const { data: comments } = await github.rest.issues.listComments({
               owner: context.repo.owner,
