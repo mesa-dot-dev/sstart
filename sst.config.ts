@@ -1,5 +1,8 @@
 /* eslint-disable @typescript-eslint/triple-slash-reference */
 /// <reference path="./.sst/platform/config.d.ts" />
+
+// const PERMANENT_STAGES = ["production", "development"];
+
 export default $config({
   app(input) {
     return {
@@ -18,8 +21,23 @@ export default $config({
     };
   },
   async run() {
-    const webApp = new sst.aws.TanstackStart("TSS-Web-App", { dev: { command: "pnpm run dev:app" } });
+    const vpc = new sst.aws.Vpc("TSSVpc", { bastion: true, nat: "ec2" });
 
-    return { webApp: webApp.url };
+    const database = new sst.aws.Postgres("TssDatabase", { vpc, proxy: true });
+
+    const webApp = new sst.aws.TanstackStart("TSSWebApp", {
+      link: [database],
+      dev: { command: "pnpm run dev:app" },
+    });
+
+    // new sst.x.DevCommand("Studio", {
+    //   link: [database],
+    //   dev: {
+    //     command: "pnpm db:studio",
+    //     autostart: true,
+    //   },
+    // });
+
+    return { webApp: webApp.url, databaseId: database.id, proxyId: database.proxyId };
   },
 });

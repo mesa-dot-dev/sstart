@@ -1,7 +1,7 @@
-// import * as fs from "fs";
 import { createFileRoute, Link } from "@tanstack/react-router";
-// import { createServerFn } from "@tanstack/start";
+import { createServerFn } from "@tanstack/start";
 import { Button } from "~/components/ui/button";
+import { db } from "~/database/drizzle";
 
 // const filePath = "count.txt";
 
@@ -18,13 +18,18 @@ import { Button } from "~/components/ui/button";
 //   await fs.promises.writeFile(filePath, `${count + addBy}`);
 // });
 
+// const getTodos = createServerFn("GET", async () => {
+//   const firstTodo = await db.query.todo.findFirst();
+
+//   return firstTodo;
+// });
+
 export const Route = createFileRoute("/")({
   component: Home,
-  // loader: async () => await getCount(),
+  // loader: async () => await getTodos(),
 });
 
 function Home() {
-  // const router = useRouter();
   // const state = Route.useLoaderData();
 
   return (
@@ -34,6 +39,7 @@ function Home() {
         <Button asChild variant="secondary">
           <Link to="/dashboard">Go to dashboard</Link>
         </Button>
+        {/* first todo: {state?.title} */}
       </div>
     </main>
   );
