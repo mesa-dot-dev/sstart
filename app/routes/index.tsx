@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/start";
 import { Button } from "~/components/ui/button";
-import { db } from "~/database/drizzle";
+import { db } from "~/database/db";
 
 // const filePath = "count.txt";
 

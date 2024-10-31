@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/triple-slash-reference */
 /// <reference path="./.sst/platform/config.d.ts" />
 
-// const PERMANENT_STAGES = ["production", "development"];
+// const isPermanentStage = $app.stage === "production" || $app.stage === "dev";
 
 export default $config({
   app(input) {
@@ -30,13 +30,13 @@ export default $config({
       dev: { command: "pnpm run dev:app" },
     });
 
-    // new sst.x.DevCommand("Studio", {
-    //   link: [database],
-    //   dev: {
-    //     command: "pnpm db:studio",
-    //     autostart: true,
-    //   },
-    // });
+    new sst.x.DevCommand("Studio", {
+      link: [database],
+      dev: {
+        command: "pnpm db:studio",
+        autostart: true,
+      },
+    });
 
     return { webApp: webApp.url, databaseId: database.id, proxyId: database.proxyId };
   },
