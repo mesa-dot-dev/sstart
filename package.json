@@ -6,7 +6,6 @@
   "scripts": {
     "auth": "aws sso login --profile dev",
     "build": "vinxi build",
-    "db": "sst shell drizzle-kit",
     "db:generate": "sst shell drizzle-kit generate",
     "db:migrate": "sst shell drizzle-kit migrate",
     "db:push": "sst shell drizzle-kit push",

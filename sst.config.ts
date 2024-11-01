@@ -1,8 +1,6 @@
 /* eslint-disable @typescript-eslint/triple-slash-reference */
 /// <reference path="./.sst/platform/config.d.ts" />
 
-// const isPermanentStage = $app.stage === "production" || $app.stage === "dev";
-
 export default $config({
   app(input) {
     return {
@@ -21,9 +19,18 @@ export default $config({
     };
   },
   async run() {
-    const vpc = new sst.aws.Vpc("TSSVpc", { bastion: true, nat: "ec2" });
+    const isPermanentStage = $app.stage === "production" || $app.stage === "dev";
 
-    const database = new sst.aws.Postgres("TssDatabase", { vpc, proxy: true });
+    const vpc = isPermanentStage
+      ? new sst.aws.Vpc("TSSVpc", { bastion: true, nat: "ec2" })
+      : sst.aws.Vpc.get("TTSVpc", "vpc-072244e19e7662502");
+
+    const database = isPermanentStage
+      ? new sst.aws.Postgres("TSSDatabase", { vpc: vpc as sst.aws.Vpc, proxy: true })
+      : sst.aws.Postgres.get("TSSDatabase", {
+          id: "tss-dev-tssdatabaseinstance",
+          proxyId: "tss-dev-tssdatabaseproxy",
+        });
 
     const webApp = new sst.aws.TanstackStart("TSSWebApp", {
       link: [database],
@@ -38,6 +45,12 @@ export default $config({
       },
     });
 
-    return { webApp: webApp.url, databaseId: database.id, proxyId: database.proxyId };
+    return {
+      webApp: webApp.url,
+      databaseId: database.id,
+      databaseName: database.database,
+      databaseProxyId: database.proxyId,
+      vpcId: vpc.id,
+    };
   },
 });
