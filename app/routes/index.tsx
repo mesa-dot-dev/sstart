@@ -5,7 +5,7 @@ import { Suspense } from "react";
 import { Button } from "~/components/ui/button";
 import { db } from "~/database/db";
 
-const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+// const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
 // const filePath = "count.txt";
 
@@ -23,11 +23,7 @@ const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 // });
 
 const getTodos = createServerFn("GET", async () => {
-  console.log("greetings from the server");
-  console.log("Im now going to sleep for 5 seconds, and the request will take 5 more seconds");
-  await sleep(5000);
   const firstTodo = await db.query.todo.findFirst();
-  console.log("done sleeping, sending res");
 
   return firstTodo;
 });
