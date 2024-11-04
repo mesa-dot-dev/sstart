@@ -1,5 +1,4 @@
-import * as React from "react";
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/(dashboard)/dashboard/")({
   component: RouteComponent,
@@ -7,11 +6,14 @@ export const Route = createFileRoute("/(dashboard)/dashboard/")({
 
 function RouteComponent() {
   return (
-    <>
-      <p>
-        This is the main section of the dashboard. It's the first thing you see when opening the dashboard,
-        but it's still viewed via the dashboard outlet.
-      </p>
-    </>
+    <div className="grid auto-rows-min gap-4 md:grid-cols-3">
+      <div className="aspect-video rounded-xl bg-muted/50 p-4">This is the default dashboard view</div>
+      <Link to="/dashboard/tasks" className="aspect-video rounded-xl bg-muted/50 p-4">
+        Click to go to Tasks
+      </Link>
+      <Link to="/dashboard/users" className="aspect-video rounded-xl bg-muted/50 p-4">
+        Click to go to Users
+      </Link>
+    </div>
   );
 }

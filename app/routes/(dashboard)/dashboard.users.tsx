@@ -8,5 +8,5 @@ export const Route = createFileRoute("/(dashboard)/dashboard/users")({
 });
 
 function RouteComponent() {
-  return "Hello /(dashboard)/dashboard/users!";
+  return <>Hello, users!</>;
 }

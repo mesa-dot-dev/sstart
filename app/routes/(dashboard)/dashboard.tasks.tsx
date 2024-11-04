@@ -9,9 +9,5 @@ export const Route = createFileRoute("/(dashboard)/dashboard/tasks")({
 });
 
 function RouteComponent() {
-  return (
-    <>
-      <p>This is the tasks sections of the dashboard</p>
-    </>
-  );
+  return <>Hello, tasks!</>;
 }

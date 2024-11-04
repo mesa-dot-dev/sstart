@@ -4,7 +4,7 @@ import * as React from "react";
 import appCss from "~/styles/app.css?url";
 import type { QueryClient } from "@tanstack/react-query";
 
-export const Route = createRootRouteWithContext<{ queryClient: QueryClient; getTitle?: () => string }>()({
+export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   meta: () => [
     {
       charSet: "utf-8",
