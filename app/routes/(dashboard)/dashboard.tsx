@@ -48,12 +48,6 @@ const DashboardBreadcrumb = () => {
   );
 };
 
-const options = [
-  linkOptions({ to: "/dashboard", label: "Summary", activeOptions: { exact: true } }),
-  linkOptions({ to: "/dashboard/tasks", label: "Tasks", activeOptions: { exact: true } }),
-  linkOptions({ to: "/dashboard/users", label: "Users", activeOptions: { exact: true } }),
-];
-
 function RouteComponent() {
   return (
     <AppSidebar>
