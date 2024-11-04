@@ -1,4 +1,4 @@
-import { createFileRoute, isMatch, Link, linkOptions, Outlet, useMatches } from "@tanstack/react-router";
+import { createFileRoute, isMatch, Link, Outlet, useMatches } from "@tanstack/react-router";
 import { Fragment } from "react/jsx-runtime";
 import { AppSidebar } from "~/components/app-sidebar";
 import {
@@ -57,16 +57,6 @@ function RouteComponent() {
           <Separator orientation="vertical" className="mr-2 h-4" />
           <DashboardBreadcrumb />
         </div>
-
-        {/* <div className="flex flex-wrap divide-x">
-        {options.map((option) => {
-          return (
-            <Link key={option.to} {...option} activeProps={{ className: `font-bold` }} className="p-2">
-              {option.label}
-            </Link>
-          );
-        })}
-      </div> */}
       </header>
       <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
         <Outlet />
