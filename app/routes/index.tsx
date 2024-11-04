@@ -3,7 +3,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/start";
 import { Suspense } from "react";
 import { Button } from "~/components/ui/button";
-import { db } from "~/database/db";
+// import { db } from "~/database/db";
 
 // const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
@@ -23,9 +23,13 @@ import { db } from "~/database/db";
 // });
 
 const getTodos = createServerFn("GET", async () => {
-  const firstTodo = await db.query.todo.findFirst();
+  // const firstTodo = await db.query.todo.findFirst();
 
-  return firstTodo;
+  return {
+    id: 1,
+    title: "Hello",
+    description: "please work",
+  };
 });
 
 const todosQueryOptions = () => queryOptions({ queryKey: ["todos"], queryFn: () => getTodos() });
