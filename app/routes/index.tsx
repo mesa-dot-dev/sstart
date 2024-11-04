@@ -45,7 +45,7 @@ function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[hsl(200,96%,22%)] to-[hsl(237,35%,13%)] text-white">
       <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16">
-        <h1 className="text-6xl">Hi, Adrian. Have a nice time in Wisconsin.</h1>
+        <h1 className="text-6xl">Hi, Adrian. Thanks for your help with my lights.</h1>
         <Button asChild variant="secondary">
           <Link to="/dashboard">Go to dashboard</Link>
         </Button>
