@@ -25,7 +25,7 @@ import { db } from "~/database/db";
 
 const getTodos = createServerFn("GET", async () => {
   try {
-    const firstTodo = db.query.todo.findMany();
+    const firstTodo = await db.query.todo.findMany();
     return firstTodo;
   } catch (error) {
     console.error("Failed to get todos", error);
