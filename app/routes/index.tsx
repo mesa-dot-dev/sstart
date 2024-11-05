@@ -24,21 +24,21 @@ import { db } from "~/database/db";
 // });
 
 const getTodos = createServerFn("GET", async () => {
-  try {
-    const firstTodo = await db.query.todo.findFirst();
-    return firstTodo;
-  } catch (error) {
-    console.error(error);
-  }
+  // try {
+  //   const firstTodo = await db.query.todo.findFirst();
+  //   return firstTodo;
+  // } catch (error) {
+  //   console.error(error);
+  // }
 });
 
-const todosQueryOptions = () => queryOptions({ queryKey: ["todos"], queryFn: () => getTodos() });
+// const todosQueryOptions = () => queryOptions({ queryKey: ["todos"], queryFn: () => getTodos() });
 
 export const Route = createFileRoute("/")({
   component: Home,
-  loader: ({ context }) => {
-    context.queryClient.prefetchQuery(todosQueryOptions());
-  },
+  // loader: ({ context }) => {
+  //   context.queryClient.prefetchQuery(todosQueryOptions());
+  // },
 });
 
 function Home() {
@@ -60,7 +60,7 @@ function Home() {
 }
 
 const Todos = () => {
-  const todosQuery = useSuspenseQuery(todosQueryOptions());
+  // const todosQuery = useSuspenseQuery(todosQueryOptions());
 
-  return <div>First Todo Title: {todosQuery.data?.title}</div>;
+  return <div>First Todo Title: ugh</div>;
 };
