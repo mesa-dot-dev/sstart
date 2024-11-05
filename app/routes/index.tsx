@@ -6,23 +6,20 @@ import { ErrorBoundary } from "react-error-boundary";
 import { Button } from "~/components/ui/button";
 import { db } from "~/database/db";
 
-const deferredQueryOptions = () =>
-  queryOptions({
-    queryKey: ["deferred"],
-    queryFn: async () => {
-      await new Promise((r) => setTimeout(r, 3000));
-      return {
-        message: `Hello deferred from the server!`,
-        status: "success",
-        time: new Date(),
-      };
-    },
-  });
+const getFirstTodo = createServerFn("GET", async () => {
+  try {
+    return await db.query.todo.findFirst();
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+const todoQueryOptions = () => queryOptions({ queryKey: ["todo"], queryFn: async () => getFirstTodo() });
 
 export const Route = createFileRoute("/")({
   component: Home,
   loader: ({ context }) => {
-    context.queryClient.prefetchQuery(deferredQueryOptions());
+    context.queryClient.prefetchQuery(todoQueryOptions());
   },
 });
 
@@ -34,23 +31,25 @@ function Home() {
         <Button asChild variant="secondary">
           <Link to="/dashboard">Go to dashboard</Link>
         </Button>
-        <Suspense fallback="Loading deferred...">
-          <Deferred />
-        </Suspense>
+        <ErrorBoundary fallback="Loading error!">
+          <Suspense fallback="Loading...">
+            <Deferred />
+          </Suspense>
+        </ErrorBoundary>
       </div>
     </main>
   );
 }
 
 const Deferred = () => {
-  const deferredQuery = useSuspenseQuery(deferredQueryOptions());
+  const { data } = useSuspenseQuery(todoQueryOptions());
 
   return (
     <div>
-      <h1>Deferred Query</h1>
-      <div>Status: {deferredQuery.data.status}</div>
-      <div>Message: {deferredQuery.data.message}</div>
-      <div>Time: {deferredQuery.data.time.toISOString()}</div>
+      <h1>Deferred Query (when streaming works)</h1>
+      <div>Id: {data?.id}</div>
+      <div>Title: {data?.title}</div>
+      <div>Description: {data?.description}</div>
     </div>
   );
 };
