@@ -11,8 +11,8 @@ const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 const getTodos = createServerFn("GET", async () => {
   console.log("get todos");
   try {
-    console.log("sleeping for a second");
-    await sleep(1000);
+    console.log("sleeping for 5 seconds");
+    await sleep(5000);
     const firstTodo = await db.query.todo.findFirst();
     return firstTodo;
   } catch (error) {
@@ -25,7 +25,7 @@ const todosQueryOptions = () => queryOptions({ queryKey: ["todos"], queryFn: () 
 export const Route = createFileRoute("/")({
   component: Home,
   loader: async ({ context }) => {
-    context.queryClient.prefetchQuery(todosQueryOptions());
+    await context.queryClient.prefetchQuery(todosQueryOptions());
   },
 });
 
