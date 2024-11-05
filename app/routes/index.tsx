@@ -26,7 +26,7 @@ import { todo } from "~/database/todo.sql";
 
 const getTodos = createServerFn("GET", async () => {
   try {
-    const firstTodo = await db.select().from(todo).limit(10);
+    const firstTodo = db.select().from(todo).limit(10);
     return firstTodo;
   } catch (error) {
     console.error(error);
@@ -63,7 +63,7 @@ function Home() {
 const Todos = () => {
   const todo = Route.useLoaderData();
 
-  console.log(todo);
+  console.log("dodo", todo);
 
   return <div>First Todo Title: plz work</div>;
 };
