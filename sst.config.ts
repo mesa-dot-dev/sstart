@@ -21,9 +21,9 @@ export default $config({
   async run() {
     const isPermanentStage = $app.stage === "production" || $app.stage === "dev";
 
-    // const vpc = isPermanentStage
-    //   ? new sst.aws.Vpc("TSSVpc", { bastion: true, nat: "ec2" })
-    //   : sst.aws.Vpc.get("TTSVpc", "vpc-0dfb600975bbae2b7");
+    const vpc = isPermanentStage
+      ? new sst.aws.Vpc("TSSVpc", { bastion: true, nat: "ec2" })
+      : sst.aws.Vpc.get("TTSVpc", "vpc-0dfb600975bbae2b7");
 
     // const database = isPermanentStage
     //   ? new sst.aws.Postgres("TSSDatabase", { vpc: vpc as sst.aws.Vpc, proxy: true })
@@ -47,6 +47,7 @@ export default $config({
 
     return {
       webApp: webApp.url,
+      vpc: vpc.id,
     };
   },
 });
