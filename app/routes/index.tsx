@@ -1,45 +1,28 @@
 import { queryOptions, useSuspenseQuery } from "@tanstack/react-query";
-import { Await, createFileRoute, defer, Link } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/start";
 import { Suspense } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import { Button } from "~/components/ui/button";
 import { db } from "~/database/db";
 
-const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
-
-const fetchSlowData = async () => {
-  console.log("slow");
-  await sleep(3000);
-  console.log("done");
-
-  return {
-    message: `Hello deferred from the server!`,
-    status: "success",
-    time: new Date(),
-  };
-};
-
-// const deferredQueryOptions = () =>
-//   queryOptions({
-//     queryKey: ["deferred"],
-//     queryFn: async () => {
-//       await new Promise((r) => setTimeout(r, 3000));
-//       return {
-//         message: `Hello deferred from the server!`,
-//         status: "success",
-//         time: new Date(),
-//       };
-//     },
-//   });
+const deferredQueryOptions = () =>
+  queryOptions({
+    queryKey: ["deferred"],
+    queryFn: async () => {
+      await new Promise((r) => setTimeout(r, 3000));
+      return {
+        message: `Hello deferred from the server!`,
+        status: "success",
+        time: new Date(),
+      };
+    },
+  });
 
 export const Route = createFileRoute("/")({
   component: Home,
-  loader: () => {
-    // context.queryClient.prefetchQuery(deferredQueryOptions());
-    const slowDataPromise = fetchSlowData();
-
-    return { deferredSlowData: defer(slowDataPromise) };
+  loader: ({ context }) => {
+    context.queryClient.prefetchQuery(deferredQueryOptions());
   },
 });
 
@@ -60,19 +43,14 @@ function Home() {
 }
 
 const Deferred = () => {
-  const { deferredSlowData } = Route.useLoaderData();
+  const deferredQuery = useSuspenseQuery(deferredQueryOptions());
 
   return (
-    <Await promise={deferredSlowData} fallback={<div>Loading...</div>}>
-      {(data) => {
-        return (
-          <div>
-            <h1>Deferred Query</h1>
-            <div>Status: {data.status}</div>
-            <div>Message: {data.message}</div>
-          </div>
-        );
-      }}
-    </Await>
+    <div>
+      <h1>Deferred Query</h1>
+      <div>Status: {deferredQuery.data.status}</div>
+      <div>Message: {deferredQuery.data.message}</div>
+      <div>Time: {deferredQuery.data.time.toISOString()}</div>
+    </div>
   );
 };
