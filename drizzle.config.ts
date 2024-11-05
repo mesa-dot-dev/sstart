@@ -12,8 +12,5 @@ export default defineConfig({
     user: Resource.TSSDatabase.username,
     password: Resource.TSSDatabase.password,
     database: Resource.TSSDatabase.database,
-    ssl: {
-      rejectUnauthorized: false,
-    },
   },
 });
