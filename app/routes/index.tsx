@@ -6,21 +6,26 @@ import { ErrorBoundary } from "react-error-boundary";
 import { Button } from "~/components/ui/button";
 import { db } from "~/database/db";
 
+const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
 const getTodos = createServerFn("GET", async () => {
+  console.log("get todos");
   try {
-    const firstTodo = await db.query.todo.findMany();
+    console.log("sleeping for a second");
+    await sleep(1000);
+    const firstTodo = await db.query.todo.findFirst();
     return firstTodo;
   } catch (error) {
-    return { error };
+    console.error(error);
   }
 });
 
+const todosQueryOptions = () => queryOptions({ queryKey: ["todos"], queryFn: () => getTodos() });
 
 export const Route = createFileRoute("/")({
   component: Home,
-  loader: async () => {
-    return await getTodos();
+  loader: async ({ context }) => {
+    context.queryClient.prefetchQuery(todosQueryOptions());
   },
 });
 
@@ -43,9 +48,7 @@ function Home() {
 }
 
 const Todos = () => {
-  const todo = Route.useLoaderData();
+  const todosQuery = useSuspenseQuery(todosQueryOptions());
 
-  console.log("dodo", todo);
-
-  return <div>First Todo Title: plz work</div>;
+  return <div>First Todo Title: {todosQuery.data?.title}</div>;
 };

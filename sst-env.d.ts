@@ -14,13 +14,13 @@ declare module "sst" {
       "type": "sst.aws.Postgres"
       "username": string
     }
-    "TSSVpc": {
-      "bastion": string
-      "type": "sst.aws.Vpc"
-    }
     "TSSWebApp": {
       "type": "sst.aws.TanstackStart"
       "url": string
+    }
+    "TTSVpc": {
+      "bastion": string
+      "type": "sst.aws.Vpc"
     }
   }
 }
