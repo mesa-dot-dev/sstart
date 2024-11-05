@@ -29,7 +29,6 @@ const getTodos = createServerFn("GET", async () => {
     return firstTodo;
   } catch (error) {
     console.error("Failed to get todos", error);
-    throw new Error("Failed to fetch todos");
   }
 });
 
