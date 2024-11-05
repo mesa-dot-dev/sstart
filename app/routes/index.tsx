@@ -6,38 +6,20 @@ import { ErrorBoundary } from "react-error-boundary";
 import { Button } from "~/components/ui/button";
 import { db } from "~/database/db";
 
-// const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
-
-// const filePath = "count.txt";
-
-// async function readCount() {
-//   return parseInt(await fs.promises.readFile(filePath, "utf-8").catch(() => "0"));
-// }
-
-// const getCount = createServerFn("GET", () => {
-//   return readCount();
-// });
-
-// const updateCount = createServerFn("POST", async (addBy: number) => {
-//   const count = await readCount();
-//   await fs.promises.writeFile(filePath, `${count + addBy}`);
-// });
-
-const getTodos = createServerFn("GET", async () => {
+const getFirstTodo = createServerFn("GET", async () => {
   try {
-    const firstTodo = await db.query.todo.findFirst();
-    return firstTodo;
+    return await db.query.todo.findFirst();
   } catch (error) {
     console.error(error);
   }
 });
 
-const todosQueryOptions = () => queryOptions({ queryKey: ["todos"], queryFn: () => getTodos() });
+const todoQueryOptions = () => queryOptions({ queryKey: ["todo"], queryFn: async () => getFirstTodo() });
 
 export const Route = createFileRoute("/")({
   component: Home,
   loader: ({ context }) => {
-    context.queryClient.prefetchQuery(todosQueryOptions());
+    context.queryClient.prefetchQuery(todoQueryOptions());
   },
 });
 
@@ -49,9 +31,9 @@ function Home() {
         <Button asChild variant="secondary">
           <Link to="/dashboard">Go to dashboard</Link>
         </Button>
-        <ErrorBoundary fallback="oops!">
-          <Suspense fallback="Loading todo...">
-            <Todos />
+        <ErrorBoundary fallback="Loading error!">
+          <Suspense fallback="Loading...">
+            <Deferred />
           </Suspense>
         </ErrorBoundary>
       </div>
@@ -59,8 +41,15 @@ function Home() {
   );
 }
 
-const Todos = () => {
-  const todosQuery = useSuspenseQuery(todosQueryOptions());
+const Deferred = () => {
+  const { data } = useSuspenseQuery(todoQueryOptions());
 
-  return <div>First Todo Title: {todosQuery.data?.title}</div>;
+  return (
+    <div>
+      <h1>Deferred Query (when streaming works)</h1>
+      <div>Id: {data?.id}</div>
+      <div>Title: {data?.title}</div>
+      <div>Description: {data?.description}</div>
+    </div>
+  );
 };

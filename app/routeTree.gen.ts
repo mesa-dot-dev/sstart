@@ -12,8 +12,6 @@
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as IndexImport } from './routes/index'
-import { Route as OldBustedOldAndBustedLayoutImport } from './routes/old-busted/old-and-busted-layout'
-import { Route as OldBustedOldAndBustedImport } from './routes/old-busted/old-and-busted'
 import { Route as dashboardDashboardImport } from './routes/(dashboard)/dashboard'
 import { Route as dashboardDashboardIndexImport } from './routes/(dashboard)/dashboard.index'
 import { Route as dashboardDashboardUsersImport } from './routes/(dashboard)/dashboard.users'
@@ -24,19 +22,6 @@ import { Route as dashboardDashboardTasksImport } from './routes/(dashboard)/das
 const IndexRoute = IndexImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const OldBustedOldAndBustedLayoutRoute =
-  OldBustedOldAndBustedLayoutImport.update({
-    id: '/old-busted/old-and-busted-layout',
-    path: '/old-busted/old-and-busted-layout',
-    getParentRoute: () => rootRoute,
-  } as any)
-
-const OldBustedOldAndBustedRoute = OldBustedOldAndBustedImport.update({
-  id: '/old-busted/old-and-busted',
-  path: '/old-busted/old-and-busted',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -80,20 +65,6 @@ declare module '@tanstack/react-router' {
       path: '/dashboard'
       fullPath: '/dashboard'
       preLoaderRoute: typeof dashboardDashboardImport
-      parentRoute: typeof rootRoute
-    }
-    '/old-busted/old-and-busted': {
-      id: '/old-busted/old-and-busted'
-      path: '/old-busted/old-and-busted'
-      fullPath: '/old-busted/old-and-busted'
-      preLoaderRoute: typeof OldBustedOldAndBustedImport
-      parentRoute: typeof rootRoute
-    }
-    '/old-busted/old-and-busted-layout': {
-      id: '/old-busted/old-and-busted-layout'
-      path: '/old-busted/old-and-busted-layout'
-      fullPath: '/old-busted/old-and-busted-layout'
-      preLoaderRoute: typeof OldBustedOldAndBustedLayoutImport
       parentRoute: typeof rootRoute
     }
     '/(dashboard)/dashboard/tasks': {
@@ -140,8 +111,6 @@ const dashboardDashboardRouteWithChildren =
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/dashboard': typeof dashboardDashboardRouteWithChildren
-  '/old-busted/old-and-busted': typeof OldBustedOldAndBustedRoute
-  '/old-busted/old-and-busted-layout': typeof OldBustedOldAndBustedLayoutRoute
   '/dashboard/tasks': typeof dashboardDashboardTasksRoute
   '/dashboard/users': typeof dashboardDashboardUsersRoute
   '/dashboard/': typeof dashboardDashboardIndexRoute
@@ -149,8 +118,6 @@ export interface FileRoutesByFullPath {
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/old-busted/old-and-busted': typeof OldBustedOldAndBustedRoute
-  '/old-busted/old-and-busted-layout': typeof OldBustedOldAndBustedLayoutRoute
   '/dashboard/tasks': typeof dashboardDashboardTasksRoute
   '/dashboard/users': typeof dashboardDashboardUsersRoute
   '/dashboard': typeof dashboardDashboardIndexRoute
@@ -160,8 +127,6 @@ export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
   '/(dashboard)/dashboard': typeof dashboardDashboardRouteWithChildren
-  '/old-busted/old-and-busted': typeof OldBustedOldAndBustedRoute
-  '/old-busted/old-and-busted-layout': typeof OldBustedOldAndBustedLayoutRoute
   '/(dashboard)/dashboard/tasks': typeof dashboardDashboardTasksRoute
   '/(dashboard)/dashboard/users': typeof dashboardDashboardUsersRoute
   '/(dashboard)/dashboard/': typeof dashboardDashboardIndexRoute
@@ -172,25 +137,15 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/dashboard'
-    | '/old-busted/old-and-busted'
-    | '/old-busted/old-and-busted-layout'
     | '/dashboard/tasks'
     | '/dashboard/users'
     | '/dashboard/'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/old-busted/old-and-busted'
-    | '/old-busted/old-and-busted-layout'
-    | '/dashboard/tasks'
-    | '/dashboard/users'
-    | '/dashboard'
+  to: '/' | '/dashboard/tasks' | '/dashboard/users' | '/dashboard'
   id:
     | '__root__'
     | '/'
     | '/(dashboard)/dashboard'
-    | '/old-busted/old-and-busted'
-    | '/old-busted/old-and-busted-layout'
     | '/(dashboard)/dashboard/tasks'
     | '/(dashboard)/dashboard/users'
     | '/(dashboard)/dashboard/'
@@ -200,15 +155,11 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   dashboardDashboardRoute: typeof dashboardDashboardRouteWithChildren
-  OldBustedOldAndBustedRoute: typeof OldBustedOldAndBustedRoute
-  OldBustedOldAndBustedLayoutRoute: typeof OldBustedOldAndBustedLayoutRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   dashboardDashboardRoute: dashboardDashboardRouteWithChildren,
-  OldBustedOldAndBustedRoute: OldBustedOldAndBustedRoute,
-  OldBustedOldAndBustedLayoutRoute: OldBustedOldAndBustedLayoutRoute,
 }
 
 export const routeTree = rootRoute
@@ -222,9 +173,7 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/(dashboard)/dashboard",
-        "/old-busted/old-and-busted",
-        "/old-busted/old-and-busted-layout"
+        "/(dashboard)/dashboard"
       ]
     },
     "/": {
@@ -237,12 +186,6 @@ export const routeTree = rootRoute
         "/(dashboard)/dashboard/users",
         "/(dashboard)/dashboard/"
       ]
-    },
-    "/old-busted/old-and-busted": {
-      "filePath": "old-busted/old-and-busted.tsx"
-    },
-    "/old-busted/old-and-busted-layout": {
-      "filePath": "old-busted/old-and-busted-layout.tsx"
     },
     "/(dashboard)/dashboard/tasks": {
       "filePath": "(dashboard)/dashboard.tasks.tsx",

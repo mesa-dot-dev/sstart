@@ -3,11 +3,8 @@ import viteTsConfigPaths from 'vite-tsconfig-paths';
 
 export default defineConfig({
   server: {
-    compatibilityDate: "2024-11-01",
+    compatibilityDate: "2024-11-05",
     preset: "aws-lambda",
-    awsLambda: {
-      streaming: true,
-    },
   },
   vite: {
     plugins: [
