@@ -26,7 +26,7 @@ import { todo } from "~/database/todo.sql";
 
 const getTodos = createServerFn("GET", async () => {
   try {
-    const firstTodo = db.$client;
+    const firstTodo = db._.tableNamesMap;
     return firstTodo;
   } catch (error) {
     console.error(error);
