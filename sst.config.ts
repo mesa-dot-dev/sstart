@@ -37,13 +37,13 @@ export default $config({
       dev: { command: "pnpm run dev:app" },
     });
 
-    // new sst.x.DevCommand("Studio", {
-    //   link: [database],
-    //   dev: {
-    //     command: "pnpm db:studio",
-    //     autostart: true,
-    //   },
-    // });
+    new sst.x.DevCommand("Studio", {
+      link: [database],
+      dev: {
+        command: "pnpm db:studio",
+        autostart: true,
+      },
+    });
 
     return {
       webApp: webApp.url,
