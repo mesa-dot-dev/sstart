@@ -13,7 +13,7 @@ const getTodos = createServerFn("GET", async () => {
   try {
     console.log("sleeping for 5 seconds");
     await sleep(5000);
-    const firstTodo = db.query.todo.findFirst();
+    const firstTodo = await db.query.todo.findFirst();
     return firstTodo;
   } catch (error) {
     console.error(error);
