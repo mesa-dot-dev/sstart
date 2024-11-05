@@ -2,6 +2,7 @@ import { queryOptions, useSuspenseQuery } from "@tanstack/react-query";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/start";
 import { Suspense } from "react";
+import { ErrorBoundary } from "react-error-boundary";
 import { Button } from "~/components/ui/button";
 import { db } from "~/database/db";
 
@@ -48,9 +49,11 @@ function Home() {
         <Button asChild variant="secondary">
           <Link to="/dashboard">Go to dashboard</Link>
         </Button>
-        <Suspense fallback="Loading todo...">
-          <Todos />
-        </Suspense>
+        <ErrorBoundary fallback="oops!">
+          <Suspense fallback="Loading todo...">
+            <Todos />
+          </Suspense>
+        </ErrorBoundary>
       </div>
     </main>
   );
@@ -59,5 +62,5 @@ function Home() {
 const Todos = () => {
   const todosQuery = useSuspenseQuery(todosQueryOptions());
 
-  return <div>First Todo: {todosQuery.data?.title}</div>;
+  return <div>First Todo Title: {todosQuery.data?.title}</div>;
 };
