@@ -6,26 +6,39 @@ import { ErrorBoundary } from "react-error-boundary";
 import { Button } from "~/components/ui/button";
 import { db } from "~/database/db";
 
-const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+// const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
-const getTodos = createServerFn("GET", async () => {
-  console.log("get todos");
-  try {
-    console.log("sleeping for 5 seconds");
-    await sleep(5000);
-    const firstTodo = await db.query.todo.findFirst();
-    return firstTodo;
-  } catch (error) {
-    console.error(error);
-  }
-});
+// const getTodos = createServerFn("GET", async () => {
+//   console.log("get todos");
+//   try {
+//     console.log("sleeping for 5 seconds");
+//     await sleep(5000);
+//     const firstTodo = await db.query.todo.findFirst();
+//     return firstTodo;
+//   } catch (error) {
+//     console.error(error);
+//   }
+// });
 
-const todosQueryOptions = () => queryOptions({ queryKey: ["todos"], queryFn: () => getTodos() });
+// const todosQueryOptions = () => queryOptions({ queryKey: ["todos"], queryFn: () => getTodos() });
+
+const deferredQueryOptions = () =>
+  queryOptions({
+    queryKey: ["deferred"],
+    queryFn: async () => {
+      await new Promise((r) => setTimeout(r, 3000));
+      return {
+        message: `Hello deferred from the server!`,
+        status: "success",
+        time: new Date(),
+      };
+    },
+  });
 
 export const Route = createFileRoute("/")({
   component: Home,
-  loader: async ({ context }) => {
-    context.queryClient.prefetchQuery(todosQueryOptions());
+  loader: ({ context }) => {
+    context.queryClient.prefetchQuery(deferredQueryOptions());
   },
 });
 
@@ -37,18 +50,23 @@ function Home() {
         <Button asChild variant="secondary">
           <Link to="/dashboard">Go to dashboard</Link>
         </Button>
-        <ErrorBoundary fallback="oops!">
-          <Suspense fallback="Loading todo...">
-            <Todos />
-          </Suspense>
-        </ErrorBoundary>
+        <Suspense fallback="Loading deferred...">
+          <Deferred />
+        </Suspense>
       </div>
     </main>
   );
 }
 
-const Todos = () => {
-  const todosQuery = useSuspenseQuery(todosQueryOptions());
+const Deferred = () => {
+  const deferredQuery = useSuspenseQuery(deferredQueryOptions());
 
-  return <div>First Todo Title: {todosQuery.data?.title}</div>;
+  return (
+    <div>
+      <h1>Deferred Query</h1>
+      <div>Status: {deferredQuery.data.status}</div>
+      <div>Message: {deferredQuery.data.message}</div>
+      <div>Time: {deferredQuery.data.time.toISOString()}</div>
+    </div>
+  );
 };
