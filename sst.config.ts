@@ -33,7 +33,7 @@ export default $config({
         });
 
     const webApp = new sst.aws.TanstackStart("TSSWebApp", {
-      // link: [database],
+      link: [database],
       dev: { command: "pnpm run dev:app" },
     });
 
