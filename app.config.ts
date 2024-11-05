@@ -5,9 +5,6 @@ export default defineConfig({
   server: {
     compatibilityDate: "2024-11-01",
     preset: "aws-lambda",
-    awsLambda: {
-      streaming: true,
-    },
   },
   vite: {
     plugins: [
