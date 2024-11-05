@@ -12,7 +12,7 @@ const getTodos = createServerFn("GET", async () => {
     const firstTodo = await db.query.todo.findMany();
     return firstTodo;
   } catch (error) {
-    console.error("Failed to get todos", error);
+    return { error };
   }
 });
 
