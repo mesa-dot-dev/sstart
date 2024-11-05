@@ -6,22 +6,6 @@ import { ErrorBoundary } from "react-error-boundary";
 import { Button } from "~/components/ui/button";
 import { db } from "~/database/db";
 
-// const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
-
-// const filePath = "count.txt";
-
-// async function readCount() {
-//   return parseInt(await fs.promises.readFile(filePath, "utf-8").catch(() => "0"));
-// }
-
-// const getCount = createServerFn("GET", () => {
-//   return readCount();
-// });
-
-// const updateCount = createServerFn("POST", async (addBy: number) => {
-//   const count = await readCount();
-//   await fs.promises.writeFile(filePath, `${count + addBy}`);
-// });
 
 const getTodos = createServerFn("GET", async () => {
   try {
@@ -32,7 +16,6 @@ const getTodos = createServerFn("GET", async () => {
   }
 });
 
-// const todosQueryOptions = () => queryOptions({ queryKey: ["todos"], queryFn: () => getTodos() });
 
 export const Route = createFileRoute("/")({
   component: Home,
