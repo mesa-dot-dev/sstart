@@ -5,7 +5,6 @@ import { Suspense } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import { Button } from "~/components/ui/button";
 import { db } from "~/database/db";
-import { todo } from "~/database/todo.sql";
 
 // const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
@@ -26,10 +25,11 @@ import { todo } from "~/database/todo.sql";
 
 const getTodos = createServerFn("GET", async () => {
   try {
-    const firstTodo = db._.tableNamesMap;
+    const firstTodo = db.query.todo.findMany();
     return firstTodo;
   } catch (error) {
-    console.error(error);
+    console.error("Failed to get todos", error);
+    throw new Error("Failed to fetch todos");
   }
 });
 
