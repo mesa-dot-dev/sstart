@@ -47,7 +47,6 @@ export default $config({
 
     return {
       webApp: webApp.url,
-      vpc: vpc.id,
     };
   },
 });
