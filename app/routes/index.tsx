@@ -5,6 +5,7 @@ import { Suspense } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import { Button } from "~/components/ui/button";
 import { db } from "~/database/db";
+import { todo } from "~/database/todo.sql";
 
 // const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
@@ -25,19 +26,19 @@ import { db } from "~/database/db";
 
 const getTodos = createServerFn("GET", async () => {
   try {
-    const firstTodo = await db.query.todo.findFirst();
+    const firstTodo = await db.select().from(todo).limit(10);
     return firstTodo;
   } catch (error) {
     console.error(error);
   }
 });
 
-const todosQueryOptions = () => queryOptions({ queryKey: ["todos"], queryFn: () => getTodos() });
+// const todosQueryOptions = () => queryOptions({ queryKey: ["todos"], queryFn: () => getTodos() });
 
 export const Route = createFileRoute("/")({
   component: Home,
-  loader: ({ context }) => {
-    context.queryClient.prefetchQuery(todosQueryOptions());
+  loader: async () => {
+    return await getTodos();
   },
 });
 
@@ -60,7 +61,9 @@ function Home() {
 }
 
 const Todos = () => {
-  const todosQuery = useSuspenseQuery(todosQueryOptions());
+  const todo = Route.useLoaderData();
 
-  return <div>First Todo Title: {todosQuery.data?.title}</div>;
+  console.log(todo);
+
+  return <div>First Todo Title: plz work</div>;
 };
