@@ -6,18 +6,6 @@ import "sst"
 export {}
 declare module "sst" {
   export interface Resource {
-    "TSSDatabase": {
-      "database": string
-      "host": string
-      "password": string
-      "port": number
-      "type": "sst.aws.Postgres"
-      "username": string
-    }
-    "TSSVpc": {
-      "bastion": string
-      "type": "sst.aws.Vpc"
-    }
     "TSSWebApp": {
       "type": "sst.aws.TanstackStart"
       "url": string
