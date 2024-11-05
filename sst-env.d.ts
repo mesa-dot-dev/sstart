@@ -6,6 +6,10 @@ import "sst"
 export {}
 declare module "sst" {
   export interface Resource {
+    "TSSVpc": {
+      "bastion": string
+      "type": "sst.aws.Vpc"
+    }
     "TSSWebApp": {
       "type": "sst.aws.TanstackStart"
       "url": string

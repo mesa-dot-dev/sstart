@@ -23,7 +23,7 @@ export default $config({
 
     const vpc = isPermanentStage
       ? new sst.aws.Vpc("TSSVpc", { bastion: true, nat: "ec2" })
-      : sst.aws.Vpc.get("TTSVpc", "vpc-0dfb600975bbae2b7");
+      : sst.aws.Vpc.get("TTSVpc", "vpc-057d1174bade06382");
 
     // const database = isPermanentStage
     //   ? new sst.aws.Postgres("TSSDatabase", { vpc: vpc as sst.aws.Vpc, proxy: true })
