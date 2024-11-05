@@ -4,7 +4,7 @@ import { createServerFn } from "@tanstack/start";
 import { Suspense } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import { Button } from "~/components/ui/button";
-import { db } from "~/database/db";
+// import { db } from "~/database/db";
 
 // const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
@@ -23,14 +23,14 @@ import { db } from "~/database/db";
 //   await fs.promises.writeFile(filePath, `${count + addBy}`);
 // });
 
-const getTodos = createServerFn("GET", async () => {
+// const getTodos = createServerFn("GET", async () => {
   // try {
   //   const firstTodo = await db.query.todo.findFirst();
   //   return firstTodo;
   // } catch (error) {
   //   console.error(error);
   // }
-});
+// });
 
 // const todosQueryOptions = () => queryOptions({ queryKey: ["todos"], queryFn: () => getTodos() });
 
