@@ -25,12 +25,12 @@ export default $config({
       ? new sst.aws.Vpc("TSSVpc", { bastion: true, nat: "ec2" })
       : sst.aws.Vpc.get("TTSVpc", "vpc-057d1174bade06382");
 
-    // const database = isPermanentStage
-    //   ? new sst.aws.Postgres("TSSDatabase", { vpc: vpc as sst.aws.Vpc, proxy: true })
-    //   : sst.aws.Postgres.get("TSSDatabase", {
-    //       id: "tss-dev-tssdatabaseinstance",
-    //       proxyId: "tss-dev-tssdatabaseproxy",
-    //     });
+    const database = isPermanentStage
+      ? new sst.aws.Postgres("TSSDatabase", { vpc: vpc as sst.aws.Vpc, proxy: true })
+      : sst.aws.Postgres.get("TSSDatabase", {
+          id: "tss-dev-tssdatabaseinstance",
+          proxyId: "tss-dev-tssdatabaseproxy",
+        });
 
     const webApp = new sst.aws.TanstackStart("TSSWebApp", {
       // link: [database],
