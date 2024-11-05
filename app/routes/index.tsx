@@ -26,7 +26,7 @@ import { todo } from "~/database/todo.sql";
 
 const getTodos = createServerFn("GET", async () => {
   try {
-    const firstTodo = await db.query.todo.findFirst();
+    const firstTodo = db.$client;
     return firstTodo;
   } catch (error) {
     console.error(error);
