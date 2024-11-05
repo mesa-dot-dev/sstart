@@ -179,7 +179,7 @@ const data = {
 export function AppSidebar({ children }: PropsWithChildren) {
   return (
     <SidebarProvider>
-      <Sidebar variant="inset">
+      <Sidebar variant="floating">
         <SidebarHeader>
           <SidebarMenu>
             <SidebarMenuItem>

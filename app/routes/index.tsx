@@ -1,7 +1,11 @@
-// import * as fs from "fs";
+import { queryOptions, useSuspenseQuery } from "@tanstack/react-query";
 import { createFileRoute, Link } from "@tanstack/react-router";
-// import { createServerFn } from "@tanstack/start";
+import { createServerFn } from "@tanstack/start";
+import { Suspense } from "react";
 import { Button } from "~/components/ui/button";
+import { db } from "~/database/db";
+
+// const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
 // const filePath = "count.txt";
 
@@ -18,23 +22,42 @@ import { Button } from "~/components/ui/button";
 //   await fs.promises.writeFile(filePath, `${count + addBy}`);
 // });
 
+const getTodos = createServerFn("GET", async () => {
+  try {
+    const firstTodo = await db.query.todo.findFirst();
+    return firstTodo;
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+const todosQueryOptions = () => queryOptions({ queryKey: ["todos"], queryFn: () => getTodos() });
+
 export const Route = createFileRoute("/")({
   component: Home,
-  // loader: async () => await getCount(),
+  loader: ({ context }) => {
+    context.queryClient.prefetchQuery(todosQueryOptions());
+  },
 });
 
 function Home() {
-  // const router = useRouter();
-  // const state = Route.useLoaderData();
-
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[hsl(200,96%,22%)] to-[hsl(237,35%,13%)] text-white">
       <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16">
-        <h1 className="text-6xl">Hi, Adrian. Have a nice time in Wisconsin.</h1>
+        <h1 className="text-6xl">Hi, Adrian. Thanks for your help with my lights.</h1>
         <Button asChild variant="secondary">
           <Link to="/dashboard">Go to dashboard</Link>
         </Button>
+        <Suspense fallback="Loading todo...">
+          <Todos />
+        </Suspense>
       </div>
     </main>
   );
 }
+
+const Todos = () => {
+  const todosQuery = useSuspenseQuery(todosQueryOptions());
+
+  return <div>First Todo: {todosQuery.data?.title}</div>;
+};

@@ -7,3 +7,4 @@
 - ✅ GitHub Actions
 - Drizzle
 - BetterAuth
+- Drizzle & Prod Migrations in CI

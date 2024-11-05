@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link } from '@tanstack/react-router'
 import {
   Breadcrumb,
   BreadcrumbList,
@@ -6,13 +6,13 @@ import {
   BreadcrumbLink,
   BreadcrumbSeparator,
   BreadcrumbPage,
-} from "~/components/ui/breadcrumb";
-import { Separator } from "~/components/ui/separator";
-import { SidebarTrigger } from "~/components/ui/sidebar";
+} from '~/components/ui/breadcrumb'
+import { Separator } from '~/components/ui/separator'
+import { SidebarTrigger } from '~/components/ui/sidebar'
 
-export const Route = createFileRoute("/dashboard/_dashboard/")({
+export const Route = createFileRoute('/old-busted/old-and-busted')({
   component: Dashboard,
-});
+})
 
 function Dashboard() {
   return (
@@ -45,5 +45,5 @@ function Dashboard() {
         <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min" />
       </div>
     </>
-  );
+  )
 }
