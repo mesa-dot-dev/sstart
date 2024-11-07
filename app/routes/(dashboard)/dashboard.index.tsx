@@ -7,7 +7,12 @@ export const Route = createFileRoute("/(dashboard)/dashboard/")({
 function RouteComponent() {
   return (
     <div className="grid auto-rows-min gap-4 md:grid-cols-3">
-      <div className="aspect-video rounded-xl bg-muted/50 p-4">This is the default dashboard view</div>
+      <div className="aspect-video rounded-xl bg-muted/50 p-4">
+        <p>This is the default dashboard view</p>
+        <Link to="/" className="underline">
+          Go home
+        </Link>
+      </div>
       <Link to="/dashboard/tasks" className="aspect-video rounded-xl bg-muted/50 p-4">
         Click to go to Tasks
       </Link>
