@@ -20,7 +20,7 @@ function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[hsl(200,96%,22%)] to-[hsl(237,35%,13%)] text-white">
       <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16">
-        <h3 className="text-6xl">Hi, Adrian. Thanks for your help with my lights.</h3>
+        <h3 className="text-6xl">Hi, Adrian. Now you can sign in and out.</h3>
         <span className="mr-2">{user ? user.email : "Not logged in"}</span>
         <Link to="/signout">Sign Out</Link>
         <Link to="/signin">Sign In</Link>
