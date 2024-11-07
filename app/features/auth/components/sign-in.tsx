@@ -30,7 +30,7 @@ export const SignIn = () => {
     if (loading) return;
 
     await authClient.signIn.email(
-      { email, password, callbackURL: "/dashboard" },
+      { email, password },
       {
         onRequest: () => {
           setLoading(true);
