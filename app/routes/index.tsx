@@ -1,55 +1,54 @@
-import { queryOptions, useSuspenseQuery } from "@tanstack/react-query";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { createServerFn } from "@tanstack/start";
-import { Suspense } from "react";
-import { ErrorBoundary } from "react-error-boundary";
-import { Button } from "~/components/ui/button";
-import { db } from "~/database/db";
 
-const getFirstTodo = createServerFn("GET", async () => {
-  try {
-    return await db.query.todo.findFirst();
-  } catch (error) {
-    console.error(error);
-  }
-});
+// const getFirstTodo = createServerFn("GET", async () => {
+//   try {
+//     return await db.query.todo.findFirst();
+//   } catch (error) {
+//     console.error(error);
+//   }
+// });
 
-const todoQueryOptions = () => queryOptions({ queryKey: ["todo"], queryFn: async () => getFirstTodo() });
+// const todoQueryOptions = () => queryOptions({ queryKey: ["todo"], queryFn: async () => getFirstTodo() });
 
 export const Route = createFileRoute("/")({
   component: Home,
-  loader: ({ context }) => {
-    context.queryClient.prefetchQuery(todoQueryOptions());
-  },
 });
 
 function Home() {
+  const { user } = Route.useRouteContext();
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[hsl(200,96%,22%)] to-[hsl(237,35%,13%)] text-white">
       <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16">
-        <h1 className="text-6xl">Hi, Adrian. Thanks for your help with my lights.</h1>
-        <Button asChild variant="secondary">
+        <h3 className="text-6xl">Hi, Adrian. Now you can sign in and out.</h3>
+        <span className="mr-2">{user ? user.email : "Not logged in"}</span>
+        <Link to="/signout">Sign Out</Link>
+        <Link to="/signin">Sign In</Link>
+        <Link to="/signup">Sign Up</Link>
+        <Link to="/dashboard">Dashboard</Link>
+
+        {/* <Button asChild variant="secondary">
           <Link to="/dashboard">Go to dashboard</Link>
-        </Button>
-        <ErrorBoundary fallback="Loading error!">
+        </Button> */}
+        {/* <ErrorBoundary fallback="Loading error!">
           <Suspense fallback="Loading...">
             <Deferred />
           </Suspense>
-        </ErrorBoundary>
+        </ErrorBoundary> */}
       </div>
     </main>
   );
 }
 
-const Deferred = () => {
-  const { data } = useSuspenseQuery(todoQueryOptions());
+// const Deferred = () => {
+//   const { data } = useSuspenseQuery(todoQueryOptions());
 
-  return (
-    <div>
-      <h1>Deferred Query (when streaming works)</h1>
-      <div>Id: {data?.id}</div>
-      <div>Title: {data?.title}</div>
-      <div>Description: {data?.description}</div>
-    </div>
-  );
-};
+//   return (
+//     <div>
+//       <h1>Deferred Query (when streaming works)</h1>
+//       <div>Id: {data?.id}</div>
+//       <div>Title: {data?.title}</div>
+//       <div>Description: {data?.description}</div>
+//     </div>
+//   );
+// };

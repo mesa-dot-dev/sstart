@@ -20,6 +20,7 @@ export default $config({
   },
   async run() {
     const isPermanentStage = $app.stage === "production" || $app.stage === "dev";
+    const betterAuthSecret = new sst.Secret("BetterAuthSecret");
 
     const vpc = isPermanentStage
       ? new sst.aws.Vpc("TSSVpc", { bastion: true, nat: "ec2" })
@@ -33,7 +34,7 @@ export default $config({
         });
 
     const webApp = new sst.aws.TanstackStart("TSSWebApp", {
-      link: [database],
+      link: [database, betterAuthSecret],
       vpc,
       dev: { command: "pnpm run dev:app" },
     });

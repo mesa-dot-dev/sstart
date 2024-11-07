@@ -1,4 +1,4 @@
-import { createFileRoute, isMatch, Link, Outlet, useMatches } from "@tanstack/react-router";
+import { createFileRoute, isMatch, Link, Outlet, redirect, useMatches } from "@tanstack/react-router";
 import { Fragment } from "react/jsx-runtime";
 import { AppSidebar } from "~/components/app-sidebar";
 import {
@@ -15,6 +15,14 @@ import { SidebarTrigger } from "~/components/ui/sidebar";
 export const Route = createFileRoute("/(dashboard)/dashboard")({
   component: RouteComponent,
   loader: () => ({ breadcrumb: "Dashboard" }),
+  beforeLoad: ({ context }) => {
+    if (!context.user) throw new Error("Not authenticated");
+  },
+  onError: (error) => {
+    if (error.message === "Not authenticated") throw redirect({ to: "/signin" });
+
+    throw error;
+  },
 });
 
 const DashboardBreadcrumb = () => {
