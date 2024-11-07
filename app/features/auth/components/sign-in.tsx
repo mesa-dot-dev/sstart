@@ -21,8 +21,8 @@ export const SignIn = () => {
   const form = useForm<z.infer<typeof signInFormSchema>>({
     resolver: zodResolver(signInFormSchema),
     defaultValues: {
-      email: "taylorsteele@tss.com",
-      password: "Hello123!",
+      email: "",
+      password: "",
     },
   });
 
@@ -30,7 +30,7 @@ export const SignIn = () => {
     if (loading) return;
 
     await authClient.signIn.email(
-      { email, password },
+      { email, password, callbackURL: "/dashboard" },
       {
         onRequest: () => {
           setLoading(true);
@@ -62,7 +62,7 @@ export const SignIn = () => {
                 <FormItem>
                   <FormLabel>Email</FormLabel>
                   <FormControl>
-                    <Input placeholder="m@example.com" {...field} />
+                    <Input placeholder="m@example.com" type="email" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
