@@ -1,13 +1,4 @@
-import { queryOptions, useSuspenseQuery } from "@tanstack/react-query";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { createServerFn } from "@tanstack/start";
-import { Suspense } from "react";
-import { ErrorBoundary } from "react-error-boundary";
-import { getWebRequest } from "vinxi/http";
-import { SignUp } from "~/components/sign-up";
-import { Button } from "~/components/ui/button";
-import { db } from "~/database/db";
-import { auth } from "~/lib/auth";
 
 // const getFirstTodo = createServerFn("GET", async () => {
 //   try {
@@ -19,22 +10,8 @@ import { auth } from "~/lib/auth";
 
 // const todoQueryOptions = () => queryOptions({ queryKey: ["todo"], queryFn: async () => getFirstTodo() });
 
-const getUser = createServerFn("GET", async () => {
-  const { headers } = getWebRequest();
-  const session = await auth.api.getSession({ headers });
-
-  if (!session) return null;
-
-  return session.user;
-});
-
 export const Route = createFileRoute("/")({
   component: Home,
-  beforeLoad: async () => {
-    const user = await getUser();
-
-    return { user };
-  },
 });
 
 function Home() {
