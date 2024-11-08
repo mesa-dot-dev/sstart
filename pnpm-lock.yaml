@@ -54,14 +54,14 @@ importers:
         specifier: ^1.79.0
         version: 1.79.0(@tanstack/react-query@5.59.20(react@18.3.1))(@tanstack/react-router@1.79.0(@tanstack/router-generator@1.79.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@tanstack/start':
-        specifier: ^1.79.0
-        version: 1.79.0(@types/node@22.9.0)(drizzle-orm@0.36.1(@libsql/client-wasm@0.14.0)(@types/pg@8.11.10)(@types/react@18.3.12)(kysely@0.27.4)(pg@8.13.1)(react@18.3.1))(ioredis@5.4.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(terser@5.36.0)(typescript@5.6.3)(vite@5.4.10(@types/node@22.9.0)(terser@5.36.0))
+        specifier: ^1.80.0
+        version: 1.80.0(@types/node@22.9.0)(drizzle-orm@0.36.1(@libsql/client-wasm@0.14.0)(@types/pg@8.11.10)(@types/react@18.3.12)(kysely@0.27.4)(pg@8.13.1)(react@18.3.1))(ioredis@5.4.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(terser@5.36.0)(typescript@5.6.3)(vite@5.4.10(@types/node@22.9.0)(terser@5.36.0))
       '@vitejs/plugin-react':
         specifier: ^4.3.3
         version: 4.3.3(vite@5.4.10(@types/node@22.9.0)(terser@5.36.0))
       better-auth:
-        specifier: 0.7.6-beta.2
-        version: 0.7.6-beta.2(react@18.3.1)(solid-js@1.9.3)(vue@3.5.12(typescript@5.6.3))
+        specifier: 0.7.6-beta.3
+        version: 0.7.6-beta.3(react@18.3.1)(solid-js@1.9.3)(vue@3.5.12(typescript@5.6.3))
       class-variance-authority:
         specifier: ^0.7.0
         version: 0.7.0
@@ -78,8 +78,8 @@ importers:
         specifier: ^0.5.1
         version: 0.5.1(drizzle-orm@0.36.1(@libsql/client-wasm@0.14.0)(@types/pg@8.11.10)(@types/react@18.3.12)(kysely@0.27.4)(pg@8.13.1)(react@18.3.1))(zod@3.23.8)
       lucide-react:
-        specifier: ^0.455.0
-        version: 0.455.0(react@18.3.1)
+        specifier: ^0.456.0
+        version: 0.456.0(react@18.3.1)
       pg:
         specifier: ^8.13.1
         version: 8.13.1
@@ -96,8 +96,8 @@ importers:
         specifier: ^7.53.1
         version: 7.53.1(react@18.3.1)
       sst:
-        specifier: 3.3.5
-        version: 3.3.5
+        specifier: 3.3.7
+        version: 3.3.7
       tailwind-merge:
         specifier: ^2.5.4
         version: 2.5.4
@@ -2257,8 +2257,8 @@ packages:
     resolution: {integrity: sha512-1qvAWdVpo4ad5EUKPZq4wdroCQggw3wcxsDf+JNTSnEp/9ucB515mGNS1FhKGVc6TQOcqGYt6u/7kVFKiNOW4A==}
     engines: {node: '>=12'}
 
-  '@tanstack/start@1.79.0':
-    resolution: {integrity: sha512-aAx3k8VOy9MoMOJE+k2Nok83HzvffmqaRXxEDl3msR/CU+UXcGz+YLA2GWbGYgrfMhgtmlbwebAedu6rluMRUg==}
+  '@tanstack/start@1.80.0':
+    resolution: {integrity: sha512-0CB3FoioiUmN6CNC5fj0tuZOvqwLmh6v9lrnqTA44Lg40piLTrspfdfWHrXQxMSKbihZbnpCA/76Y99UIIWLeg==}
     engines: {node: '>=12'}
     peerDependencies:
       react: '>=18.0.0 || >=19.0.0'
@@ -2593,8 +2593,8 @@ packages:
   base64-js@1.5.1:
     resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}
 
-  better-auth@0.7.6-beta.2:
-    resolution: {integrity: sha512-k8+GwvNqD/NutCxcS/Zp4Ie/QHV0GDhBdxF6VZ6vSwLKgfWoFXrtn5wXvjfC0aUMf+E9fKzthncUgSnog0su5g==}
+  better-auth@0.7.6-beta.3:
+    resolution: {integrity: sha512-GaU8/pl7MOUe3P1WDSYUjUOgkxpelSIO5RHfvUBwa5jhUNG+CDwaenHFktS3n9WiksIXGZtMzAE0U/ZG1stIyg==}
 
   better-call@0.2.14-beta.3:
     resolution: {integrity: sha512-lA54ETanzM0xUZnQt6lm3BdTr4gVDyAe1DNpCQSTYUnwnGGOmQG8ob0FYivVd0XHsHQK68r01GB5c6cUuu4llQ==}
@@ -3702,8 +3702,8 @@ packages:
     resolution: {integrity: sha512-Jo6dJ04CmSjuznwJSS3pUeWmd/H0ffTlkXXgwZi+eq1UCmqQwCh+eLsYOYCwY991i2Fah4h1BEMCx4qThGbsiA==}
     engines: {node: '>=10'}
 
-  lucide-react@0.455.0:
-    resolution: {integrity: sha512-XQoi58X4COfjy6s1P4TVsXMhU2r1KsfUTRFyds/yJvdzBNOfu0F9RRIas626T8UaNZzEv4llF7ivh4uLkYp3rw==}
+  lucide-react@0.456.0:
+    resolution: {integrity: sha512-DIIGJqTT5X05sbAsQ+OhA8OtJYyD4NsEMCA/HQW/Y6ToPQ7gwbtujIoeAaup4HpHzV35SQOarKAWH8LYglB6eA==}
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0-rc
 
@@ -3932,8 +3932,8 @@ packages:
     resolution: {integrity: sha512-7x81NCL719oNbsq/3mh+hVrAWmFuEYUqrq/Iw3kUzH8ReypT9QQ0BLoJS7/G9k6N81XjW4qHWtjWwe/9eLy1EQ==}
     engines: {node: '>=12'}
 
-  openapi-typescript@7.4.2:
-    resolution: {integrity: sha512-SvhmSTItcEAdDUcz+wzrcg6OENpMRkHqqY2hZB01FT+NOfgLcZ1B1ML6vcQrnipONHtG9AQELiKHgGTjpNGjiQ==}
+  openapi-typescript@7.4.3:
+    resolution: {integrity: sha512-xTIjMIIOv9kNhsr8JxaC00ucbIY/6ZwuJPJBZMSh5FA2dicZN5uM805DWVJojXdom8YI4AQTavPDPHMx/3g0vQ==}
     hasBin: true
     peerDependencies:
       typescript: ^5.x
@@ -4508,33 +4508,33 @@ packages:
     resolution: {integrity: sha512-UcjcJOWknrNkF6PLX83qcHM6KHgVKNkV62Y8a5uYDVv9ydGQVwAHMKqHdJje1VTWpljG0WYpCDhrCdAOYH4TWg==}
     engines: {node: '>= 10.x'}
 
-  sst-darwin-arm64@3.3.5:
-    resolution: {integrity: sha512-kHQcmGhNMbIIhgz49Ejki6zp5TiCRwHaf+3c13GOzMrCIng2GixboGoNjMBFdSwXogQcJBc0BBOQo1oxmr4CxQ==}
+  sst-darwin-arm64@3.3.7:
+    resolution: {integrity: sha512-2CQh78YIdvrRpO8enZ/Jx51JsUSFtk564u9w4ldcu5SsMMDY1ocdw5p/XIwBy1eKeRtrXLizd35sYbtSfSy6sw==}
     cpu: [arm64]
     os: [darwin]
 
-  sst-darwin-x64@3.3.5:
-    resolution: {integrity: sha512-jouPGqUjlfMpwOyBzbYMMW/ezRlAqte4BnzASdPG7Cr23jX8Hl06yVFSzFAougfFA3vBnln6qCgLtNP/vDqCew==}
+  sst-darwin-x64@3.3.7:
+    resolution: {integrity: sha512-+hiDT3+am+CBO3xBy8yl3bmFeTjGXUT/+7V6NFOV2yxlRP3A8J65nEjWdzPTU/u7hRl+leE8EBu14j0grt/7/A==}
     cpu: [x64]
     os: [darwin]
 
-  sst-linux-arm64@3.3.5:
-    resolution: {integrity: sha512-0fl7cR80bqScR1SS6iAAab4tjaT3M2dQCfjl0aTaBTeI+DmTD+SbteGcVwkQaXjcETuIUEKUAFd6F5EF0LewlA==}
+  sst-linux-arm64@3.3.7:
+    resolution: {integrity: sha512-dYolpXAjq0S8QjL8sTKzcRpPNgZDeMcJ9PHnt/8GpdqxNxEpGlNF9gMl2cB7mleJyJYBNMPvi4YEeCGtcazmeQ==}
     cpu: [arm64]
     os: [linux]
 
-  sst-linux-x64@3.3.5:
-    resolution: {integrity: sha512-Et6DMlp8UGsUlToeMzWpEfRpxiYexMmnbfNd+usZMq7kC2or8Ze6ec3HR6Mm2pXjcwEZ6GUZRPWATWfqH7yNmw==}
+  sst-linux-x64@3.3.7:
+    resolution: {integrity: sha512-K2vPOZ5DS8mJmE4QtffgZN5Nem1MIBhoVozNtZ0NoufeKHbFz0Hyw9wbqxYSbs2MOoVNKvG8qwcX99ojVXTFKw==}
     cpu: [x64]
     os: [linux]
 
-  sst-linux-x86@3.3.5:
-    resolution: {integrity: sha512-ZjW1gkBbGRjCiCaZg+NBEeVwQ9/NFr5BjxLbwMX0zDwwDUim9W/PC89sHYZO9KnJX3D39+X8QC11vRnxpYQkNw==}
+  sst-linux-x86@3.3.7:
+    resolution: {integrity: sha512-4rXj54+UJd+HLmrhCHQ0k9AOkugHZhhh6sCUnkUNChJr5ei62pRscUQ7ge8/jywvfzHZGZw3eXXJWCCsjilXFA==}
     cpu: [x86]
     os: [linux]
 
-  sst@3.3.5:
-    resolution: {integrity: sha512-YqiDtvCFPfztusQbOU974R8WwGJNLs33X57NuVwUYCH9miMlw0Rz/hWMlwR9uMyQm7b6vc+Sf1kBPqy5iuPk6w==}
+  sst@3.3.7:
+    resolution: {integrity: sha512-qIJPQnGeIHarWZoUvphwi6R1nu6Pccd3Q2Qy9ltBLs4Z47TkSdwBNeqCBhgAzWA0eLDwStTXliexyQCcNM6gDQ==}
     hasBin: true
     peerDependencies:
       hono: 4.x
@@ -4552,8 +4552,8 @@ packages:
     resolution: {integrity: sha512-RwNA9Z/7PrK06rYLIzFMlaF+l73iwpzsqRIFgbMLbTcLD6cOao82TaWefPXQvB2fOC4AjuYSEndS7N/mTCbkdQ==}
     engines: {node: '>= 0.8'}
 
-  std-env@3.7.0:
-    resolution: {integrity: sha512-JPbdCEQLj1w5GilpiHAx3qJvFndqybBysA3qUOnznweH4QbNYUsW/ea8QzSrnh0vNsezMMw5bcVool8lM0gwzg==}
+  std-env@3.8.0:
+    resolution: {integrity: sha512-Bc3YwwCB+OzldMxOXJIIvC6cPRWr/LxOp48CdQTOkPyk/t4JWWJbrilwBd7RJzKV8QW7tJkcgAmeuLLJugl5/w==}
 
   streamx@2.20.1:
     resolution: {integrity: sha512-uTa0mU6WUC65iUvzKH4X9hEdvSW7rbPxPtwfWiLMSj3qTdQbAiUboZTxauKfpFuGIGa1C2BYijZ7wgdUXICJhA==}
@@ -6720,7 +6720,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@tanstack/start@1.79.0(@types/node@22.9.0)(drizzle-orm@0.36.1(@libsql/client-wasm@0.14.0)(@types/pg@8.11.10)(@types/react@18.3.12)(kysely@0.27.4)(pg@8.13.1)(react@18.3.1))(ioredis@5.4.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(terser@5.36.0)(typescript@5.6.3)(vite@5.4.10(@types/node@22.9.0)(terser@5.36.0))':
+  '@tanstack/start@1.80.0(@types/node@22.9.0)(drizzle-orm@0.36.1(@libsql/client-wasm@0.14.0)(@types/pg@8.11.10)(@types/react@18.3.12)(kysely@0.27.4)(pg@8.13.1)(react@18.3.1))(ioredis@5.4.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(terser@5.36.0)(typescript@5.6.3)(vite@5.4.10(@types/node@22.9.0)(terser@5.36.0))':
     dependencies:
       '@tanstack/react-cross-context': 1.74.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@tanstack/react-router': 1.79.0(@tanstack/router-generator@1.79.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -6967,7 +6967,7 @@ snapshots:
       mlly: 1.7.2
       node-forge: 1.3.1
       pathe: 1.1.2
-      std-env: 3.7.0
+      std-env: 3.8.0
       ufo: 1.5.4
       untun: 0.1.3
       uqr: 0.1.2
@@ -7230,7 +7230,7 @@ snapshots:
 
   base64-js@1.5.1: {}
 
-  better-auth@0.7.6-beta.2(react@18.3.1)(solid-js@1.9.3)(vue@3.5.12(typescript@5.6.3)):
+  better-auth@0.7.6-beta.3(react@18.3.1)(solid-js@1.9.3)(vue@3.5.12(typescript@5.6.3)):
     dependencies:
       '@better-fetch/fetch': 1.1.12
       '@nanostores/query': 0.3.4(nanostores@0.11.3)
@@ -8403,7 +8403,7 @@ snapshots:
       mlly: 1.7.2
       node-forge: 1.3.1
       pathe: 1.1.2
-      std-env: 3.7.0
+      std-env: 3.8.0
       ufo: 1.5.4
       untun: 0.1.3
       uqr: 0.1.2
@@ -8443,7 +8443,7 @@ snapshots:
     dependencies:
       yallist: 4.0.0
 
-  lucide-react@0.455.0(react@18.3.1):
+  lucide-react@0.456.0(react@18.3.1):
     dependencies:
       react: 18.3.1
 
@@ -8603,7 +8603,7 @@ snapshots:
       node-fetch-native: 1.6.4
       ofetch: 1.4.1
       ohash: 1.1.4
-      openapi-typescript: 7.4.2(typescript@5.6.3)
+      openapi-typescript: 7.4.3(typescript@5.6.3)
       pathe: 1.1.2
       perfect-debounce: 1.0.0
       pkg-types: 1.2.1
@@ -8615,7 +8615,7 @@ snapshots:
       semver: 7.6.3
       serve-placeholder: 2.0.2
       serve-static: 1.16.2
-      std-env: 3.7.0
+      std-env: 3.8.0
       ufo: 1.5.4
       uncrypto: 0.1.3
       unctx: 2.3.1
@@ -8726,7 +8726,7 @@ snapshots:
       is-docker: 2.2.1
       is-wsl: 2.2.0
 
-  openapi-typescript@7.4.2(typescript@5.6.3):
+  openapi-typescript@7.4.3(typescript@5.6.3):
     dependencies:
       '@redocly/openapi-core': 1.25.11(supports-color@9.4.0)
       ansi-colors: 4.1.3
@@ -9229,38 +9229,38 @@ snapshots:
 
   split2@4.2.0: {}
 
-  sst-darwin-arm64@3.3.5:
+  sst-darwin-arm64@3.3.7:
     optional: true
 
-  sst-darwin-x64@3.3.5:
+  sst-darwin-x64@3.3.7:
     optional: true
 
-  sst-linux-arm64@3.3.5:
+  sst-linux-arm64@3.3.7:
     optional: true
 
-  sst-linux-x64@3.3.5:
+  sst-linux-x64@3.3.7:
     optional: true
 
-  sst-linux-x86@3.3.5:
+  sst-linux-x86@3.3.7:
     optional: true
 
-  sst@3.3.5:
+  sst@3.3.7:
     dependencies:
       aws4fetch: 1.0.20
       jose: 5.2.3
       openid-client: 5.6.4
     optionalDependencies:
-      sst-darwin-arm64: 3.3.5
-      sst-darwin-x64: 3.3.5
-      sst-linux-arm64: 3.3.5
-      sst-linux-x64: 3.3.5
-      sst-linux-x86: 3.3.5
+      sst-darwin-arm64: 3.3.7
+      sst-darwin-x64: 3.3.7
+      sst-linux-arm64: 3.3.7
+      sst-linux-x64: 3.3.7
+      sst-linux-x86: 3.3.7
 
   standard-as-callback@2.1.0: {}
 
   statuses@2.0.1: {}
 
-  std-env@3.7.0: {}
+  std-env@3.8.0: {}
 
   streamx@2.20.1:
     dependencies:
