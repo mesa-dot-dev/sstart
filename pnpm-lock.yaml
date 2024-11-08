@@ -60,8 +60,8 @@ importers:
         specifier: ^4.3.3
         version: 4.3.3(vite@5.4.10(@types/node@22.9.0)(terser@5.36.0))
       better-auth:
-        specifier: 0.7.5-beta.6
-        version: 0.7.5-beta.6(react@18.3.1)(solid-js@1.9.3)(vue@3.5.12(typescript@5.6.3))
+        specifier: 0.7.6-beta.2
+        version: 0.7.6-beta.2(react@18.3.1)(solid-js@1.9.3)(vue@3.5.12(typescript@5.6.3))
       class-variance-authority:
         specifier: ^0.7.0
         version: 0.7.0
@@ -78,8 +78,8 @@ importers:
         specifier: ^0.5.1
         version: 0.5.1(drizzle-orm@0.36.1(@libsql/client-wasm@0.14.0)(@types/pg@8.11.10)(@types/react@18.3.12)(kysely@0.27.4)(pg@8.13.1)(react@18.3.1))(zod@3.23.8)
       lucide-react:
-        specifier: ^0.454.0
-        version: 0.454.0(react@18.3.1)
+        specifier: ^0.455.0
+        version: 0.455.0(react@18.3.1)
       pg:
         specifier: ^8.13.1
         version: 8.13.1
@@ -2593,8 +2593,8 @@ packages:
   base64-js@1.5.1:
     resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}
 
-  better-auth@0.7.5-beta.6:
-    resolution: {integrity: sha512-rvQdyBPSlVr5F0MrSLOmQgeYP5ss1oCWwuHFA+JAuaP+9utqgzqWbXjLI7p1hzEdsdfULwBzpbDS/P/Zo5/6uw==}
+  better-auth@0.7.6-beta.2:
+    resolution: {integrity: sha512-k8+GwvNqD/NutCxcS/Zp4Ie/QHV0GDhBdxF6VZ6vSwLKgfWoFXrtn5wXvjfC0aUMf+E9fKzthncUgSnog0su5g==}
 
   better-call@0.2.14-beta.3:
     resolution: {integrity: sha512-lA54ETanzM0xUZnQt6lm3BdTr4gVDyAe1DNpCQSTYUnwnGGOmQG8ob0FYivVd0XHsHQK68r01GB5c6cUuu4llQ==}
@@ -2658,8 +2658,8 @@ packages:
     resolution: {integrity: sha512-xlx1yCK2Oc1APsPXDL2LdlNP6+uu8OCDdhOBSVT279M/S+y75O30C2VuD8T2ogdePBBl7PfPF4504tnLgX3zfw==}
     engines: {node: '>=14.16'}
 
-  caniuse-lite@1.0.30001678:
-    resolution: {integrity: sha512-RR+4U/05gNtps58PEBDZcPWTgEO2MBeoPZ96aQcjmfkBWRIDfN451fW2qyDA9/+HohLLIL5GqiMwA+IB1pWarw==}
+  caniuse-lite@1.0.30001679:
+    resolution: {integrity: sha512-j2YqID/YwpLnKzCmBOS4tlZdWprXm3ZmQLBH9ZBXFOhoxLA46fwyBvx6toCBWBmnuwUY/qB3kEU6gFx8qgCroA==}
 
   chalk@4.1.2:
     resolution: {integrity: sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==}
@@ -3015,8 +3015,8 @@ packages:
   ee-first@1.1.1:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
 
-  electron-to-chromium@1.5.52:
-    resolution: {integrity: sha512-xtoijJTZ+qeucLBDNztDOuQBE1ksqjvNjvqFoST3nGC7fSpqJ+X6BdTBaY5BHG+IhWWmpc6b/KfpeuEDupEPOQ==}
+  electron-to-chromium@1.5.55:
+    resolution: {integrity: sha512-6maZ2ASDOTBtjt9FhqYPRnbvKU5tjG0IN9SztUOWYw2AzNDNpKJYLJmlK0/En4Hs/aiWnB+JZ+gW19PIGszgKg==}
 
   emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
@@ -3702,8 +3702,8 @@ packages:
     resolution: {integrity: sha512-Jo6dJ04CmSjuznwJSS3pUeWmd/H0ffTlkXXgwZi+eq1UCmqQwCh+eLsYOYCwY991i2Fah4h1BEMCx4qThGbsiA==}
     engines: {node: '>=10'}
 
-  lucide-react@0.454.0:
-    resolution: {integrity: sha512-hw7zMDwykCLnEzgncEEjHeA6+45aeEzRYuKHuyRSOPkhko+J3ySGjGIzu+mmMfDFG1vazHepMaYFYHbTFAZAAQ==}
+  lucide-react@0.455.0:
+    resolution: {integrity: sha512-XQoi58X4COfjy6s1P4TVsXMhU2r1KsfUTRFyds/yJvdzBNOfu0F9RRIas626T8UaNZzEv4llF7ivh4uLkYp3rw==}
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0-rc
 
@@ -3830,8 +3830,8 @@ packages:
   natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
 
-  nitropack-nightly@2.10.3-20241105-190013.cf497593:
-    resolution: {integrity: sha512-wkd+30lqw76LkTW0MKJEK7WEhiWScnDzWgxn/fYA9i82RTlWUw6WLElCJnM4FQsBCWaXy+Plt9Nr5eKZbNOEVQ==}
+  nitropack-nightly@2.10.5-20241108-120107.536d79be:
+    resolution: {integrity: sha512-LFy4gi+nKTiywx6vkeEglQfeXqUfpaeXk3nW2VayOdvCAWsjBawv6AeckHRU8U0XQ+yFSV7yuyVJ27P4+cX61Q==}
     engines: {node: ^16.11.0 || >=17.0.0}
     hasBin: true
     peerDependencies:
@@ -7203,7 +7203,7 @@ snapshots:
   autoprefixer@10.4.20(postcss@8.4.47):
     dependencies:
       browserslist: 4.24.2
-      caniuse-lite: 1.0.30001678
+      caniuse-lite: 1.0.30001679
       fraction.js: 4.3.7
       normalize-range: 0.1.2
       picocolors: 1.1.1
@@ -7230,7 +7230,7 @@ snapshots:
 
   base64-js@1.5.1: {}
 
-  better-auth@0.7.5-beta.6(react@18.3.1)(solid-js@1.9.3)(vue@3.5.12(typescript@5.6.3)):
+  better-auth@0.7.6-beta.2(react@18.3.1)(solid-js@1.9.3)(vue@3.5.12(typescript@5.6.3)):
     dependencies:
       '@better-fetch/fetch': 1.1.12
       '@nanostores/query': 0.3.4(nanostores@0.11.3)
@@ -7301,8 +7301,8 @@ snapshots:
 
   browserslist@4.24.2:
     dependencies:
-      caniuse-lite: 1.0.30001678
-      electron-to-chromium: 1.5.52
+      caniuse-lite: 1.0.30001679
+      electron-to-chromium: 1.5.55
       node-releases: 2.0.18
       update-browserslist-db: 1.1.1(browserslist@4.24.2)
 
@@ -7338,7 +7338,7 @@ snapshots:
 
   camelcase@7.0.1: {}
 
-  caniuse-lite@1.0.30001678: {}
+  caniuse-lite@1.0.30001679: {}
 
   chalk@4.1.2:
     dependencies:
@@ -7548,7 +7548,7 @@ snapshots:
 
   ee-first@1.1.1: {}
 
-  electron-to-chromium@1.5.52: {}
+  electron-to-chromium@1.5.55: {}
 
   emoji-regex@8.0.0: {}
 
@@ -8394,7 +8394,7 @@ snapshots:
       citty: 0.1.6
       clipboardy: 4.0.0
       consola: 3.2.3
-      crossws: 0.3.1
+      crossws: 0.2.4
       defu: 6.1.4
       get-port-please: 3.1.2
       h3: 1.13.0
@@ -8443,7 +8443,7 @@ snapshots:
     dependencies:
       yallist: 4.0.0
 
-  lucide-react@0.454.0(react@18.3.1):
+  lucide-react@0.455.0(react@18.3.1):
     dependencies:
       react: 18.3.1
 
@@ -8554,7 +8554,7 @@ snapshots:
 
   natural-compare@1.4.0: {}
 
-  nitropack-nightly@2.10.3-20241105-190013.cf497593(drizzle-orm@0.36.1(@libsql/client-wasm@0.14.0)(@types/pg@8.11.10)(@types/react@18.3.12)(kysely@0.27.4)(pg@8.13.1)(react@18.3.1))(typescript@5.6.3):
+  nitropack-nightly@2.10.5-20241108-120107.536d79be(drizzle-orm@0.36.1(@libsql/client-wasm@0.14.0)(@types/pg@8.11.10)(@types/react@18.3.12)(kysely@0.27.4)(pg@8.13.1)(react@18.3.1))(typescript@5.6.3):
     dependencies:
       '@cloudflare/kv-asset-handler': 0.3.4
       '@netlify/functions': 2.8.2
@@ -9612,7 +9612,7 @@ snapshots:
       hookable: 5.5.3
       http-proxy: 1.18.1
       micromatch: 4.0.8
-      nitropack: nitropack-nightly@2.10.3-20241105-190013.cf497593(drizzle-orm@0.36.1(@libsql/client-wasm@0.14.0)(@types/pg@8.11.10)(@types/react@18.3.12)(kysely@0.27.4)(pg@8.13.1)(react@18.3.1))(typescript@5.6.3)
+      nitropack: nitropack-nightly@2.10.5-20241108-120107.536d79be(drizzle-orm@0.36.1(@libsql/client-wasm@0.14.0)(@types/pg@8.11.10)(@types/react@18.3.12)(kysely@0.27.4)(pg@8.13.1)(react@18.3.1))(typescript@5.6.3)
       node-fetch-native: 1.6.4
       path-to-regexp: 6.3.0
       pathe: 1.1.2

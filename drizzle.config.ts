@@ -5,7 +5,6 @@ export default defineConfig({
   dialect: "postgresql",
   schema: ["./app/**/*.sql.ts"],
   out: "./app/database/migrations/",
-
   dbCredentials: {
     host: Resource.TSSDatabase.host,
     port: Resource.TSSDatabase.port,

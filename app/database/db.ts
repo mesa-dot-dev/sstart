@@ -12,4 +12,4 @@ const pool = new pg.Pool({
   database: Resource.TSSDatabase.database,
 });
 
-export const db = drizzle(pool, { schema: { ...todoSchema, ...authSchema } });
+export const db = drizzle(pool, { schema: { ...todoSchema, ...authSchema }, logger: true });

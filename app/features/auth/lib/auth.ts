@@ -16,4 +16,9 @@ export const auth = betterAuth({
     "https://dadc32hngl0az.cloudfront.net",
     "https://d1l6gad6488u49.cloudfront.net",
   ],
+  session: {
+    cookieCache: {
+      enabled: true,
+    },
+  },
 });
