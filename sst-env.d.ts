@@ -18,6 +18,10 @@ declare module "sst" {
       "type": "sst.aws.Postgres"
       "username": string
     }
+    "TSSDatabasePush": {
+      "name": string
+      "type": "sst.aws.Function"
+    }
     "TSSWebApp": {
       "type": "sst.aws.TanstackStart"
       "url": string
