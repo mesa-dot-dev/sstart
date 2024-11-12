@@ -22,7 +22,6 @@ import {
   Trash2,
 } from "lucide-react";
 import { PropsWithChildren } from "react";
-
 import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "~/components/ui/collapsible";
 import {
