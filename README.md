@@ -6,5 +6,5 @@
 - ✅ SST
 - ✅ GitHub Actions
 - ✅ Drizzle
-- BetterAuth
+- ✅ BetterAuth
 - Drizzle & Prod Migrations in CI
