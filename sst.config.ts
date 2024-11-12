@@ -40,7 +40,7 @@ export default $config({
     });
 
     const databasePush = new sst.aws.Function("TSSDatabasePush", {
-      handler: "app/database/db.databasePush",
+      handler: "app/database/database-push.databasePush",
       link: [database],
       vpc,
     });
