@@ -4,4 +4,5 @@ export const todo = pgTable("todo", {
   id: serial("id").primaryKey(),
   title: text("title").notNull(),
   description: text("description"),
+  test: text("test"),
 });
