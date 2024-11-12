@@ -39,13 +39,13 @@ export default $config({
       dev: { command: "pnpm run dev:app" },
     });
 
-    const databasePush = new sst.aws.Function("TSSDatabasePush", {
-      handler: "app/database/database-push.databasePush",
-      link: [database],
-      vpc,
-    });
-
     if ($app.stage === "production") {
+      const databasePush = new sst.aws.Function("TSSDatabasePush", {
+        handler: "app/database/database-push.databasePush",
+        link: [database],
+        vpc,
+      });
+
       new aws.lambda.Invocation("TSSDatabasePushInvocation", {
         functionName: databasePush.name,
         input: JSON.stringify({
