@@ -3,7 +3,7 @@ import { createServerFn } from "@tanstack/start";
 import { getWebRequest } from "vinxi/http";
 import { auth } from "~/features/auth/lib/auth";
 
-const logout = createServerFn("POST", async () => {
+const logout = createServerFn({ method: "POST" }).handler(async () => {
   const { headers } = getWebRequest();
 
   await auth.api.signOut({ headers });
