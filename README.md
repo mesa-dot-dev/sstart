@@ -98,3 +98,6 @@ SST Console - The enterprise world can be cruel. It's often easier to give exist
 - ✅ Drizzle
 - ✅ BetterAuth
 - ✅ Drizzle & Prod Migrations in CI
+
+# Wishlist
+- SST & VPCs work without `sudo`

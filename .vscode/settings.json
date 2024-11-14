@@ -15,9 +15,11 @@
     "pnpm-lock.yaml": true,
     "postcss.config.js": true,
     ".prettierrc": true,
+    ".prettierignore": true,
     "**/.sst": true,
     "**/.output": true,
-    ".nvmrc": true
+    ".nvmrc": true,
+    "sst-env.d.ts": true
   },
   "typescript.tsdk": "./node_modules/typescript/lib",
   "tailwindCSS.experimental.classRegex": [
