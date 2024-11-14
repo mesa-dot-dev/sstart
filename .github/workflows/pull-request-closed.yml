@@ -40,5 +40,5 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Deploy app
+      - name: Remove PR stage
         run: pnpm sst remove --stage pr-${{ github.event.pull_request.number }}
