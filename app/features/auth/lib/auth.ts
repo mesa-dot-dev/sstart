@@ -11,11 +11,7 @@ export const auth = betterAuth({
   emailAndPassword: {
     enabled: true,
   },
-  trustedOrigins: [
-    "https://d1p64y1v9iordo.cloudfront.net",
-    "https://dadc32hngl0az.cloudfront.net",
-    "https://d1l6gad6488u49.cloudfront.net",
-  ],
+  trustedOrigins: ["https://*.cloudfront.net"],
   session: {
     cookieCache: {
       enabled: true,
