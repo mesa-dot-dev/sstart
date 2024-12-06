@@ -1,6 +1,6 @@
 import { createFileRoute, isMatch, Link, Outlet, redirect, useMatches } from "@tanstack/react-router";
 import { Fragment } from "react/jsx-runtime";
-import { AppSidebar } from "~/components/app-sidebar";
+import { AppSidebar } from "@/components/app-sidebar";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -8,9 +8,9 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "~/components/ui/breadcrumb";
-import { Separator } from "~/components/ui/separator";
-import { SidebarTrigger } from "~/components/ui/sidebar";
+} from "@/components/ui/breadcrumb";
+import { Separator } from "@/components/ui/separator";
+import { SidebarTrigger } from "@/components/ui/sidebar";
 
 export const Route = createFileRoute("/(dashboard)/dashboard")({
   component: RouteComponent,

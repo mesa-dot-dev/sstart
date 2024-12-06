@@ -3,8 +3,8 @@ import { createRootRouteWithContext, Outlet, ScrollRestoration } from "@tanstack
 import { createServerFn, Meta, Scripts } from "@tanstack/start";
 import * as React from "react";
 import { getWebRequest } from "vinxi/http";
-import { auth } from "~/features/auth/lib/auth";
-import appCss from "~/styles/app.css?url";
+import { auth } from "@/features/auth/lib/auth";
+import appCss from "@/app.css?url";
 
 const getUser = createServerFn({ method: "GET" }).handler(async () => {
   const { headers } = getWebRequest();

@@ -1,7 +1,7 @@
 import { drizzle } from "drizzle-orm/node-postgres";
 import pg from "pg";
 import { Resource } from "sst";
-import * as authSchema from "~/features/auth/database/auth-schema.sql";
+import * as authSchema from "@/features/auth/database/auth-schema.sql";
 import * as todoSchema from "./todo.sql";
 
 export const schema = {
@@ -18,4 +18,3 @@ const pool = new pg.Pool({
 });
 
 export const db = drizzle(pool, { schema });
-

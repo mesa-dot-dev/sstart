@@ -22,23 +22,3 @@ export default tseslint.config(
     },
   },
 );
-
-// export default [
-//   { files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"] },
-//   {
-//     languageOptions: {
-//       globals: { ...globals.browser, ...globals.node, React: true, JSX: true },
-//     },
-//   },
-//   ...pluginRouter.configs["flat/recommended"],
-//   pluginJs.configs.recommended,
-//   ...tseslint.configs.recommended,
-//   {
-//     plugins: { pluginReact },
-//     settings: {
-//       react: {
-//         version: "detect",
-//       },
-//     },
-//   },
-// ];

@@ -1,7 +1,7 @@
 import { createFileRoute, redirect } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/start";
 import { getWebRequest, deleteCookie } from "vinxi/http";
-import { auth } from "~/features/auth/lib/auth";
+import { auth } from "@/features/auth/lib/auth";
 
 const signout = createServerFn({ method: "POST" }).handler(async () => {
   const { headers } = getWebRequest();

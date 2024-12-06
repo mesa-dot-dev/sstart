@@ -22,8 +22,8 @@ import {
   Trash2,
 } from "lucide-react";
 import { PropsWithChildren } from "react";
-import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "~/components/ui/collapsible";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -32,7 +32,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "~/components/ui/dropdown-menu";
+} from "@/components/ui/dropdown-menu";
 import {
   Sidebar,
   SidebarContent,
@@ -50,7 +50,7 @@ import {
   SidebarMenuSubButton,
   SidebarMenuSubItem,
   SidebarProvider,
-} from "~/components/ui/sidebar";
+} from "@/components/ui/sidebar";
 const data = {
   user: {
     name: "adrian lujo",

@@ -1,5 +1,5 @@
 import { createFileRoute, Link, redirect } from "@tanstack/react-router";
-import { SignIn } from "~/features/auth/components/sign-in";
+import { SignIn } from "@/features/auth/components/sign-in";
 
 export const Route = createFileRoute("/signin")({
   component: RouteComponent,

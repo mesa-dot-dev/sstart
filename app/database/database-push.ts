@@ -1,6 +1,6 @@
 import { pushSchema } from "drizzle-kit/api";
 import { PgDatabase } from "drizzle-orm/pg-core";
-import { db, schema } from "~/database/db";
+import { db, schema } from "@/database/db";
 
 export async function databasePush() {
   try {
